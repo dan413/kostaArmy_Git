@@ -218,24 +218,24 @@
    		select * from manager_soldier where soldier_group=#{cadre_group} and soldier_v_flag = '3'
    </select>
 
-<select id="get_Soldier_By_Key" parameterType="hashMap"
+	<select id="get_Soldier_By_Key" parameterType="hashMap"
 		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
 		select * from manager_soldier
 		<where>
 			<if test="soldier_group == '본부중대'">
-				soldier_group = '본부중대'and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group = '본부중대'and soldier_v_flag != '3' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '1중대'">
-				soldier_group = '1중대' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group = '1중대' and soldier_v_flag != '3' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '2중대'">
-				soldier_group = '2중대' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group = '2중대' and soldier_v_flag != '3' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '3중대'">
-				soldier_group = '3중대' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group = '3중대' and soldier_v_flag != '3' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 		</where>
 	</select>
@@ -245,19 +245,19 @@
 		select * from manager_soldier
 		<where>
 			<if test="soldier_group == '본부중대'">
-				soldier_group='본부중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group='본부중대' and soldier_v_flag != '3' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '1중대'">
-				soldier_group='1중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group='1중대' and soldier_v_flag != '3' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '2중대'">
-				soldier_group='2중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group='2중대' and soldier_v_flag != '3' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '3중대'">
-				soldier_group='3중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+				soldier_group='3중대' and soldier_v_flag != '3' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
 			</if>
 		</where>
 	</select>

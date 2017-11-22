@@ -7,19 +7,19 @@
 		select * from cadreUser_table
 		<where>
 			<if test="soldier_group == '본부중대'">
-				cadre_group = '본부중대'and cadre_name like '%' || #{keyvalue} || '%'
+				cadre_group = '본부중대' and cadre_v_flag != '3' and cadre_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '1중대'">
-				cadre_group = '1중대' and cadre_name like '%' || #{keyvalue} || '%'
+				cadre_group = '1중대' and cadre_v_flag != '3' and cadre_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '2중대'">
-				cadre_group = '2중대' and cadre_name like '%' || #{keyvalue} || '%'
+				cadre_group = '2중대' and cadre_v_flag != '3' and cadre_name like '%' || #{keyvalue} || '%'
 			</if>
 
 			<if test="soldier_group == '3중대'">
-				cadre_group = '3중대' and cadre_name like '%' || #{keyvalue} || '%'
+				cadre_group = '3중대' and cadre_v_flag != '3' and cadre_name like '%' || #{keyvalue} || '%'
 			</if>
 		</where>
 	</select>

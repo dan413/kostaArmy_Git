@@ -355,7 +355,7 @@
 
 			<!-- 검색 부분 -->
 			<div id="cattery" style="width: 30%; padding-left: 1%; padding-right: 1%; float: right; display: block;">
-				<div class="datagrid" style="overflow-y: hidden; height: 800px;">
+				<div class="datagrid" style="overflow-y: hidden; height: 800px; overflow-y: auto;">
 					<table>
 						<thead style="font-size: 30px;">
 							<tr>
