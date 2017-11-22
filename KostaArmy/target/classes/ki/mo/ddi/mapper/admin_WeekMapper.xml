@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.adminModel.Admin_WeekDAO">
+
+   <!-- 주간 계획을 작성할 경우 -->
+   <insert id="insertWeekly" parameterType="ki.mo.ddi.adminModel.Admin_WeekDTO">
+      insert into week(w_num, weekly, w_monday, w_tuesday, w_wednesday, w_thursday, w_friday, w_saturday, w_sunday, cadre_group) 
+         values(#{w_num}, #{weekly}, #{w_monday}, #{w_tuesday}, #{w_wednesday}, #{w_thursday}, #{w_friday}, #{w_saturday}, #{w_sunday}, #{cadre_group})
+   </insert>
+   
+   <!-- 주간 계획을 모두 모아서 월간 계획을 뿌려 주기 위함  -->
+   <select id="getAllWeekly" parameterType="String" resultType="ki.mo.ddi.adminModel.Admin_WeekDTO">
+      select * from week where cadre_group = #{cadre_group} order by w_num 
+   </select>
+   
+   <!-- 주간 계획을 모두 모아서 월간 계획을 뿌려 주기 위함  -->
+   <select id="selectWeekly" parameterType="int" resultType="ki.mo.ddi.adminModel.Admin_WeekDTO">
+      select * from week where w_num = #{w_num}
+   </select>
+   
+   <!-- 월간 종합에서 저장을 눌렀을 경우 발생 -->
+   <delete id="deleteWeekly" parameterType="String">
+      delete from week where cadre_group = #{cadre_group}
+   </delete>
+   
+   <update id="updateWeekly" parameterType="ki.mo.ddi.adminModel.Admin_WeekDTO">
+      update week set weekly=#{weekly}, w_monday=#{w_monday}, w_tuesday=#{w_tuesday}, w_wednesday=#{w_wednesday}, w_thursday=#{w_thursday}, w_friday=#{w_friday}, w_saturday=#{w_saturday}, w_sunday=#{w_sunday} where w_num=#{w_num} 
+   </update>
+</mapper>

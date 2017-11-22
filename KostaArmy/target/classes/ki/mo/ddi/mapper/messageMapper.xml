@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="ki.mo.ddi.messageModel.MessageDAO">
+
+
+	<insert id="sendMsg" parameterType="hashmap">
+		insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+			values(msg_no.nextval, #{msg_to_number}, #{msg_from_number}, #{msg_content}, sysdate )
+	</insert>
+	
+ 	<select id="alramMsg" parameterType="hashmap" resultType="int">
+		
+		select count(*) from Message where msg_flag = 1 and msg_to_number = #{user} 
+			
+	</select> 
+	
+	<select id="alramWorkMsg" parameterType="hashmap" resultType="int">
+		
+		select count(*) from Message where msg_flag = 1 and msg_to_number = CONCAT(#{cadre_group},#{cadre_position})
+			
+	</select> 
+	
+	<update id="readMsg" parameterType="ki.mo.ddi.messageModel.MessageDTO" >
+		update Message set msg_flag = 0 where msg_no = #{msg_no}
+	</update> 
+	
+	<select id="getReceivedList" parameterType= "String" resultType="ki.mo.ddi.messageModel.MessageDTO">
+		select cadre_name,cadre_mmr,cadre_dept,cadre_group, msg_no, msg_flag, msg_to_number,msg_content,msg_date
+		as from message, cadreuser_table 
+		where  msg_from_number=cadre_number and msg_to_number = #{cadre_num} order by msg_no desc
+	</select>
+	
+	<select id="getSentList" parameterType="String" resultType="ki.mo.ddi.messageModel.MessageDTO">
+		select cadre_name,cadre_mmr,cadre_dept,cadre_group, msg_no, msg_flag, msg_to_number,msg_content,msg_date
+		as from message, cadreuser_table 
+		where  msg_to_number=cadre_number and msg_from_number = #{cadre_num} and msg_to_number != #{cadre_num} order by msg_no desc
+	</select>
+	
+	<select id="getWorkList" parameterType="hashmap" resultType="ki.mo.ddi.messageModel.MessageDTO">
+		select * from Message where msg_to_number = CONCAT(#{cadre_group},#{cadre_position}) ORDER BY msg_no DESC
+	</select>
+
+	<select id="getAddrList" parameterType="String" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table where cadre_number != #{cadre_num}
+	</select>
+	
+	<select id="getDetailView" parameterType="int" resultType="ki.mo.ddi.messageModel.MessageDTO">
+		select * from MESSAGE where MSG_NO = #{msg_no}
+	</select>
+	
+	<select id="searchAddr" parameterType="String" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table where cadre_name like '%' || #{keyword} || '%'
+			or cadre_number like '%' || #{keyword} || '%'
+			or cadre_phone like '%' || #{keyword} || '%'
+			or cadre_mmr like '%' || #{keyword} || '%'
+			or cadre_position like '%' || #{keyword} || '%'
+			or cadre_group like '%' || #{keyword} || '%'
+			and cadre_number != #{cadre_num}
+				
+	</select>
+	
+	
+	
+
+
+</mapper>

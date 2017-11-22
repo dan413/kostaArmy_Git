@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.cadreModel.CadreDAO">
+	
+	<select id="get_Cadre_By_Key" parameterType="hashMap" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_table
+		<where>
+			<if test="soldier_group == '본부중대'">
+				cadre_group = '본부중대'and cadre_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '1중대'">
+				cadre_group = '1중대' and cadre_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '2중대'">
+				cadre_group = '2중대' and cadre_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '3중대'">
+				cadre_group = '3중대' and cadre_name like '%' || #{keyvalue} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="getAllCadre" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table
+	</select>
+	
+	<select id="getAllCadre_flagOn" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table where cadre_enabled = 1
+	</select>
+	
+	<select id="findInfoByNum" parameterType="String"
+		resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table where cadre_number= #{cadre_number}
+	</select>
+
+	<select id="noticeList" resultType="ki.mo.ddi.noticeModel.MnoticeDTO">
+		<include refid="pagingHeader"></include>
+		SELECT rownum, num, dept,title,writer,idate, hit, content, cadre_num,
+		cadre_group, mmr, position
+		FROM material_notice
+		ORDER BY NUM DESC
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<sql id="pagingHeader">
+		SELECT * FROM (
+		SELECT ROWNUM AS rn, A.* FROM (
+	</sql>
+	<sql id="pagingFooter">
+		) A
+		) WHERE rn BETWEEN 1 AND 10
+	</sql>
+
+	<insert id="insertCadre_nonFile">
+		insert into cadreUser_Table
+		(cadre_number,
+		cadre_name,
+		cadre_password,
+		cadre_mmr,
+		cadre_regidentNumber,
+		cadre_age,
+		cadre_supergroup,
+		cadre_group,
+		cadre_bloodType,
+		cadre_subbloodType,
+		cadre_phone,
+		cadre_address,
+		cadre_remark,
+		cadre_position,
+		cadre_inputDate,
+		cadre_outputDate,
+		cadre_role,
+		cadre_dept,
+		cadre_enabled,
+		cadre_d_day
+		)
+		values
+		(#{cadre_number },
+		#{cadre_name },
+		#{cadre_password},
+		#{cadre_mmr },
+		#{cadre_regidentNumber},
+		#{cadre_age },
+		#{cadre_supergroup},
+		#{cadre_group },
+		#{cadre_bloodType },
+		#{cadre_subbloodType },
+		#{cadre_phone },
+		#{cadre_address },
+		#{cadre_remark },
+		#{cadre_position },
+		#{cadre_inputDate },
+		#{cadre_outputDate },
+		#{cadre_role },
+		#{cadre_dept },
+		1,
+		#{cadre_d_day}
+		)
+	</insert>
+
+	<insert id="insertCadre">
+		insert into cadreUser_Table
+		(cadre_number,
+		cadre_name,
+		cadre_password,
+		cadre_mmr,
+		cadre_regidentNumber,
+		cadre_age,
+		cadre_supergroup,
+		cadre_group,
+		cadre_bloodType,
+		cadre_subbloodType,
+		cadre_phone,
+		cadre_address,
+		cadre_remark,
+		cadre_position,
+		cadre_inputDate,
+		cadre_outputDate,
+		cadre_role,
+		cadre_dept,
+		cadre_enabled,
+		cadre_picture,
+		cadre_d_day
+		)
+		values
+		(#{cadre_number },
+		#{cadre_name },
+		#{cadre_password},
+		#{cadre_mmr },
+		#{cadre_regidentNumber},
+		#{cadre_age },
+		#{cadre_supergroup},
+		#{cadre_group },
+		#{cadre_bloodType },
+		#{cadre_subbloodType },
+		#{cadre_phone },
+		#{cadre_address },
+		#{cadre_remark },
+		#{cadre_position },
+		#{cadre_inputDate },
+		#{cadre_outputDate },
+		#{cadre_role },
+		#{cadre_dept },
+		1,
+		#{cadre_picture},
+		#{cadre_d_day}
+		)
+	</insert>
+
+	<select id="getCadreInfo" parameterType="String"
+		resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from CadreUser_Table where cadre_number = #{cadre_number}
+	</select>
+
+	<update id="updateCadre_nonFile" parameterType="ki.mo.ddi.cadreModel.CadreDTO">
+		update cadreUser_Table set
+		cadre_name = #{cadre_name},
+		cadre_mmr = #{cadre_mmr},
+		cadre_regidentNumber = #{cadre_regidentNumber},
+		cadre_age = #{cadre_age},
+		cadre_supergroup = #{cadre_supergroup},
+		cadre_group = #{cadre_group},
+		cadre_bloodType = #{cadre_bloodType},
+		cadre_subbloodType = #{cadre_subbloodType},
+		cadre_phone = #{cadre_phone},
+		cadre_address = #{cadre_address},
+		cadre_remark = #{cadre_remark},
+		cadre_position = #{cadre_position},
+		cadre_inputDate = #{cadre_inputDate},
+		cadre_outputDate = #{cadre_outputDate},
+		cadre_role = #{cadre_role},
+		cadre_dept = #{cadre_dept},
+		cadre_d_day = #{cadre_d_day}
+		where cadre_number = #{cadre_number}
+	</update>
+
+	<update id="updateCadre" parameterType="ki.mo.ddi.cadreModel.CadreDTO">
+		update cadreUser_Table set
+		cadre_name = #{cadre_name},
+		cadre_picture = #{cadre_picture},
+		cadre_mmr = #{cadre_mmr},
+		cadre_regidentNumber = #{cadre_regidentNumber},
+		cadre_age = #{cadre_age},
+		cadre_supergroup = #{cadre_supergroup},
+		cadre_group = #{cadre_group},
+		cadre_bloodType = #{cadre_bloodType},
+		cadre_subbloodType = #{cadre_subbloodType},
+		cadre_phone = #{cadre_phone},
+		cadre_address = #{cadre_address},
+		cadre_remark = #{cadre_remark},
+		cadre_position = #{cadre_position},
+		cadre_inputDate = #{cadre_inputDate},
+		cadre_outputDate = #{cadre_outputDate},
+		cadre_role = #{cadre_role} ,
+		cadre_dept = #{cadre_dept},
+		cadre_d_day = #{cadre_d_day}
+		where cadre_number = #{cadre_number}
+	</update>
+
+	<select id="selectByKey" parameterType="hashMap"
+		resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table
+		<where>
+			<if test="cadre_group == '본부중대'">
+				cadre_group = '본부중대'
+				<if test="arr == 'cadre_number'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_mmr'">
+					and cadre_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+			<if test="cadre_group == '1중대'">
+				cadre_group = '1중대'
+				<if test="arr == 'cadre_number'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_mmr'">
+					and cadre_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+			<if test="cadre_group == '2중대'">
+				cadre_group = '2중대'
+				<if test="arr == 'cadre_number'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_mmr'">
+					and cadre_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+			<if test="cadre_group == '3중대'">
+				cadre_group = '3중대'
+				<if test="arr == 'cadre_number'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_mmr'">
+					and cadre_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+			<if test="cadre_group == 'KOSTA대대'">
+				cadre_group = 'KOSTA중대'
+				<if test="arr == 'cadre_number'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_mmr'">
+					and cadre_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'cadre_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+		</where>
+	</select>
+
+	<select id="selectByKey_vacation_cadreUser_table" parameterType="hashMap"
+		resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select * from cadreUser_Table
+		<where>
+			<if test="cadre_group=='본부중대'">
+				cadre_group = '본부중대'
+				<if test="arr =='manager_num'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+			<if test="cadre_group=='1중대'">
+				cadre_group = '1중대'
+				<if test="arr =='manager_num'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+			<if test="cadre_group=='2중대'">
+				cadre_group = '2중대'
+				<if test="arr =='manager_num'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+			<if test="cadre_group=='3중대'">
+				cadre_group = '3중대'
+				<if test="arr =='manager_num'">
+					and cadre_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and cadre_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+		</where>
+	</select>
+	<select id="getPassword" parameterType="String" resultType="String">
+		select cadre_password from cadreUser_Table where cadre_number =
+		#{cadre_number}
+	</select>
+
+	<update id="changePassword" parameterType="ki.mo.ddi.cadreModel.CadreDTO">
+		update cadreUser_Table set cadre_password = #{cadre_password} where
+		cadre_number = #{cadre_number}
+	</update>
+
+	<update id="update_Day" parameterType="ki.mo.ddi.cadreModel.CadreDTO">
+		update cadreUser_Table set cadre_d_day = #{cadre_d_day} where cadre_number =
+		#{cadre_number}
+	</update>
+
+	<update id="cadreDischargeProcess" parameterType="String">
+		update cadreUser_Table set cadre_enabled = 0 where
+		cadre_number=#{cadre_number}
+	</update>
+
+	<select id="select_Complete_Cadre_Vacation" parameterType="String"
+		resultType="ki.mo.ddi.cadreModel.CadreDTO">
+		select cadre_name, cadre_mmr, cadre_s_vacation, cadre_e_vacation +1 as
+		cadre_e_vacation, cadre_vacation
+		from cadreUser_table where cadre_group = #{cadre_group} and cadre_v_flag =
+		'2'
+	</select>
+	
+   <update id="cadre_vacation_start" parameterType="String">
+   		update  cadreUser_table set cadre_v_flag = '3' where cadre_number=#{cadre_number}
+   </update>
+   
+   <update id="cadre_vacation_end" parameterType="ki.mo.ddi.cadreModel.CadreDTO">
+   		{call
+
+			declare
+       		 begin	
+       		 	insert into vacation_backup(vacation_number, vacation_name, vacation_mmr, vacation_group, vacation_kind, vacation_start, vacation_end, vacation_part)
+       		 		values(#{cadre_number}, #{cadre_name}, #{cadre_mmr}, #{cadre_group}, #{cadre_vacation}, #{cadre_s_vacation}, #{cadre_e_vacation}, 1);
+		   		update cadreUser_table set cadre_v_flag = '0' where cadre_number=#{cadre_number};
+		 	 
+       		 end
+		}
+   </update>
+
+ 	<select id="getCadre_vacationMember" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+   		select * from cadreUser_table where (cadre_v_flag = '2' or cadre_v_flag='3') and cadre_group = #{cadre_group}
+   </select>
+   
+    <select id="getSelect_vacation" parameterType="String" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+    	select * from cadreUser_table where cadre_group=#{cadre_group} and cadre_v_flag = '3'
+    </select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.supplyModel.Supply_BasketDAO">
+	<select id="insertBasketSupply" parameterType="ki.mo.ddi.supplyModel.Supply_BasketDTO">
+		insert into supply_basket values (#{osupply_num}, #{osupply_name}, #{osupply_order}, #{osupply_flag})
+	</select>
+	
+	<select id="getBasketList" resultType="ki.mo.ddi.supplyModel.Supply_BasketDTO">
+		select * from supply_basket
+	</select>
+	
+	<delete id="deleteBasketSupply" parameterType="String">
+		delete from supply_basket where osupply_num = #{osupply_num}
+	</delete>
+	
+	<delete id="initialization">
+		delete from supply_basket
+	</delete>
+</mapper>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.managerModel.Manager_SoldierDAO">
+	<select id="getAllSoldierList" resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select * from manager_Soldier
+	</select>
+
+	<insert id="addNewSoldier" parameterType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		insert into manager_Soldier
+		(soldier_number, soldier_name, soldier_mmr, soldier_group, soldier_inputDate,
+		soldier_outputDate, soldier_d_day) values
+		(#{soldier_number}, #{soldier_name}, #{soldier_mmr}, #{soldier_group},
+		#{soldier_inputDate}, #{soldier_outputDate}, #{soldier_d_day})
+	</insert>
+
+	<select id="getSoldierInfo" parameterType="String"
+		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select * from manager_Soldier where soldier_number = #{soldier_number}
+	</select>
+
+	<update id="updateSoldier" parameterType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		update manager_Soldier set
+		soldier_name = #{soldier_name},
+		soldier_mmr = #{soldier_mmr},
+		soldier_regidentNumber = #{soldier_regidentNumber},
+		soldier_age = #{soldier_age},
+		soldier_supergroup = #{soldier_supergroup},
+		soldier_group = #{soldier_group},
+		soldier_bloodType = #{soldier_bloodType},
+		soldier_subbloodType = #{soldier_subbloodType},
+		soldier_remark = #{soldier_remark},
+		soldier_picture = #{soldier_picture},
+		soldier_phone=#{soldier_phone},
+		soldier_address = #{soldier_address},
+		soldier_enabled=1,
+		soldier_position=#{soldier_position},
+		soldier_inputDate=#{soldier_inputDate},
+		soldier_outputDate=#{soldier_outputDate},
+		soldier_d_day=#{soldier_d_day}
+		where soldier_number = #{soldier_number}
+	</update>
+
+	<update id="updateSoldier_nonFile" parameterType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		update manager_Soldier set
+		soldier_name = #{soldier_name},
+		soldier_mmr = #{soldier_mmr},
+		soldier_regidentNumber = #{soldier_regidentNumber},
+		soldier_age = #{soldier_age},
+		soldier_supergroup = #{soldier_supergroup},
+		soldier_group = #{soldier_group},
+		soldier_bloodType = #{soldier_bloodType},
+		soldier_subbloodType = #{soldier_subbloodType},
+		soldier_remark = #{soldier_remark},
+		soldier_phone=#{soldier_phone},
+		soldier_address = #{soldier_address},
+		soldier_enabled=1,
+		soldier_position=#{soldier_position},
+		soldier_inputDate=#{soldier_inputDate},
+		soldier_outputDate=#{soldier_outputDate},
+		soldier_d_day=#{soldier_d_day}
+		where soldier_number = #{soldier_number}
+	</update>
+
+	<select id="selectByKey" parameterType="hashMap"
+		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select * from manager_soldier
+		<where>
+			<if test="soldier_group == '본부중대'">
+				soldier_group = '본부중대'
+				<if test="arr == 'soldier_number'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_mmr'">
+					and soldier_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+
+			<if test="soldier_group == '1중대'">
+				soldier_group = '1중대'
+				<if test="arr == 'soldier_number'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_mmr'">
+					and soldier_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+
+			<if test="soldier_group == '2중대'">
+				soldier_group = '2중대'
+				<if test="arr == 'soldier_number'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_mmr'">
+					and soldier_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+
+			<if test="soldier_group == '3중대'">
+				soldier_group = '3중대'
+				<if test="arr == 'soldier_number'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_mmr'">
+					and soldier_mmr like '%' || #{keyvalue} || '%'
+				</if>
+				<if test="arr == 'soldier_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+			</if>
+		</where>
+	</select>
+
+	<select id="selectByKey_vacation_manager_soldier" parameterType="hashMap"
+		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select * from manager_soldier
+		<where>
+			<if test="cadre_group=='본부중대'">
+				soldier_group = '본부중대'
+				<if test="arr =='manager_num'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+			<if test="cadre_group=='1중대'">
+				soldier_group = '1중대'
+				<if test="arr =='manager_num'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+			<if test="cadre_group=='2중대'">
+				soldier_group = '2중대'
+				<if test="arr =='manager_num'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+			<if test="cadre_group=='3중대'">
+				soldier_group = '3중대'
+				<if test="arr =='manager_num'">
+					and soldier_number like '%' || #{keyvalue} || '%'
+				</if>
+
+				<if test="arr =='manager_name'">
+					and soldier_name like '%' || #{keyvalue} || '%'
+				</if>
+
+			</if>
+
+		</where>
+	</select>
+
+	<update id="update_Day" parameterType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		update manager_soldier set soldier_d_day = #{soldier_d_day} where
+		soldier_number = #{soldier_number}
+	</update>
+
+	<update id="dischargeProcess" parameterType="String">
+		update manager_soldier set soldier_enabled = 0 where soldier_number =
+		#{soldier_number}
+	</update>
+
+	<select id="select_Complete_Soldier_Vacation" parameterType="String"
+		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select soldier_name, soldier_mmr, soldier_s_vacation, soldier_e_vacation +1
+		as soldier_e_vacation, soldier_vacation
+		from manager_soldier where soldier_group = #{cadre_group} and
+		soldier_v_flag = '2'
+	</select>
+	
+	  <select id="getSoldier_vacationMember" resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+   		select * from manager_soldier where (soldier_v_flag = '2' or soldier_v_flag='3') and soldier_group=#{cadre_group}
+   </select>
+   
+    <update id="soldier_vacation_start" parameterType="String">
+   		update manager_soldier set soldier_v_flag = '3' where soldier_number=#{soldier_number}
+   </update>
+   
+   <update id="soldier_vacation_end" parameterType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+   		{call
+
+			declare
+       		 begin	
+       		 	insert into vacation_backup(vacation_number, vacation_name, vacation_mmr, vacation_group, vacation_kind, vacation_start, vacation_end, vacation_part)
+       		 		values(#{soldier_number}, #{soldier_name}, #{soldier_mmr}, #{soldier_group}, #{soldier_vacation}, #{soldier_s_vacation}, #{soldier_e_vacation}, 0);
+		   		update manager_soldier set soldier_v_flag = '0' where soldier_number=#{soldier_number};
+		 	 
+       		 end
+		}
+   </update>
+   
+   <select id="getSelect_vaction" parameterType="String" resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+   		select * from manager_soldier where soldier_group=#{cadre_group} and soldier_v_flag = '3'
+   </select>
+
+<select id="get_Soldier_By_Key" parameterType="hashMap"
+		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select * from manager_soldier
+		<where>
+			<if test="soldier_group == '본부중대'">
+				soldier_group = '본부중대'and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '1중대'">
+				soldier_group = '1중대' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '2중대'">
+				soldier_group = '2중대' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '3중대'">
+				soldier_group = '3중대' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="get_Driver_By_Key" parameterType="hashMap"
+		resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+		select * from manager_soldier
+		<where>
+			<if test="soldier_group == '본부중대'">
+				soldier_group='본부중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '1중대'">
+				soldier_group='1중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '2중대'">
+				soldier_group='2중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+
+			<if test="soldier_group == '3중대'">
+				soldier_group='3중대' and soldier_position='운전병' and soldier_name like '%' || #{keyvalue} || '%'
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.managerModel.Manager_FamilyTableDAO">
+	<insert id="addSoldierNumber" parameterType="String">
+		insert into soldier_FamilyTable (soldier_number) values (#{soldier_number})
+	</insert>
+	<select id="getFamilyInfo" parameterType="String" resultType="ki.mo.ddi.managerModel.Manager_FamilyTableDTO">
+		select * from soldier_FamilyTable where soldier_number = #{soldier_number}
+	</select>
+	<update id="updateSoldierFamily" parameterType="ki.mo.ddi.managerModel.Manager_FamilyTableDTO">
+		update soldier_FamilyTable set
+		famRel1 = #{famRel1}, famName1 = #{famName1}, famAge1 = #{famAge1}, famJob1 = #{famJob1}, famPhone1 = #{famPhone1},
+		famRel2 = #{famRel2}, famName2 = #{famName2}, famAge2 = #{famAge2}, famJob2 = #{famJob2}, famPhone2 = #{famPhone2},
+		famRel3 = #{famRel3}, famName3 = #{famName3}, famAge3 = #{famAge3}, famJob3 = #{famJob3}, famPhone3 = #{famPhone3}
+		where soldier_number = #{soldier_number}
+	</update>
+</mapper>

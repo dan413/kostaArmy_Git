@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	
+	<security:http auto-config="true" use-expressions="true" access-denied-page="/accessError.do">
+		<security:form-login
+		username-parameter="j_username"
+		password-parameter="j_password" 
+		login-page="/CadreLogin.do"
+		authentication-success-handler-ref="customAuthenticationSuccessHandler"
+		authentication-failure-handler-ref="customAuthenticationFailHandler"
+		/>
+		<security:logout logout-success-url="/CadreLogin.do" invalidate-session="true"/>
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="driverManagerDataSource"
+				users-by-username-query="select cadre_number, cadre_password, cadre_enabled from cadreUser_Table where cadre_number=?"
+				authorities-by-username-query="select cadre_number, cadre_role from cadreUser_Table where cadre_number=?"/>
+		</security:authentication-provider> 
+	</security:authentication-manager>
+	
+	<bean id="customAuthenticationSuccessHandler" class="ki.mo.ddi.LoginProcessHandler.CustomAuthenticationSuccessHandler"></bean>
+	
+	<bean id="customAuthenticationFailHandler" class="ki.mo.ddi.LoginProcessHandler.CustomAuthenticationFailHandler">
+		<property name="userID" value="j_username"/>
+		<property name="userPW" value="j_password"/>
+	</bean>
+</beans>

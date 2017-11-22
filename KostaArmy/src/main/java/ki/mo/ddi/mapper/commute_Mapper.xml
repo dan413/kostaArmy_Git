@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.commuteModel.Cadre_CommuteListDAO">
+	<insert id="insertStart_time" parameterType="ki.mo.ddi.commuteModel.Cadre_CommuteListDTO">
+		insert into cadre_commuteList(cadre_number, start_time, commute_flag) values (#{cadre_number}, sysdate, 1)
+	</insert>
+	
+	<select id="getStart_time" parameterType="String" resultType="String">
+		select start_time from cadre_commuteList where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</select>
+	
+	<select id="getLastCommute_time" parameterType="String" resultType="ki.mo.ddi.commuteModel.Cadre_CommuteListDTO">
+		select * from 
+		(select * from cadre_commuteList where cadre_number = #{cadre_number} order by start_time desc)
+		where rownum = 1
+	</select>
+	
+	<update id="updateOver_Commute" parameterType="String">
+		update cadre_commuteList set over_time = sysdate, commute_flag = 2 where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</update>
+	
+	<select id ="getOver_CommuteTime" parameterType="String" resultType="String">
+		select over_time from cadre_commuteList where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</select>
+
+	<update id="updateEnd_Commute" parameterType="String">
+		update cadre_commuteList set end_time = sysdate, commute_flag = 3 where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</update>
+	
+	<update id="updateEnd_Commute_over" parameterType="String">
+		update cadre_commuteList set end_time = sysdate, commute_flag = 3, over_pay = #{over_pay} where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</update>
+	
+	<update id="setEnd_Commute_time" parameterType="ki.mo.ddi.commuteModel.Cadre_CommuteListDTO">
+		update cadre_commuteList set end_time = #{end_time}, commute_flag = 3 where cadre_number = #{cadre_number}
+		and start_time = #{start_time}
+	</update>
+	
+	<select id="getCadre_CommuteRecord" parameterType="String" resultType="ki.mo.ddi.commuteModel.Cadre_CommuteListDTO">
+		select * from cadre_commuteList where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</select>
+	
+	<select id="getEnd_CommuteTime" parameterType="String" resultType="String">
+		select end_time from cadre_commuteList where cadre_number = #{cadre_number} and
+		to_char(start_time, 'yyyymmdd') = to_char(sysdate,'yyyymmdd')
+	</select>
+	
+	<select id="getCadre_CommuteList" parameterType="ki.mo.ddi.commuteModel.Cadre_CommuteListDTO" resultType="ki.mo.ddi.commuteModel.Cadre_CommuteListDTO">
+		 <![CDATA[ 
+			select * from cadre_commuteList where 
+			(cadre_number = #{cadre_number} and commute_flag = 3) and (start_time BETWEEN to_char(#{start_time}, 'yyyymmdd') and to_char(#{end_time}, 'yyyymmdd'))
+		 ]]>
+	</select>
+</mapper>
+

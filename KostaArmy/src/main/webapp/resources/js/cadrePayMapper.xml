@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.commuteModel.Cadre_PayListDAO">
+	<select id="getSendPayCount" resultType="int">
+		select count(*) from cadre_payList where to_char(cadre_sendPayDate, 'yyyymmdd') = to_char(sysdate, 'yyyymmdd')
+	</select>
+	
+	<insert id="insertCadrePayRecord" parameterType="ki.mo.ddi.commuteModel.Cadre_PayListDTO">
+		insert into cadre_payList values(
+			sysdate,
+			#{cadre_number},
+			#{cadre_normalPay},
+			#{cadre_overPay},
+			#{cadre_incomeTax},
+			#{cadre_sub_incomeTax},
+			#{cadre_healthyTax}
+		)
+	</insert>
+</mapper>

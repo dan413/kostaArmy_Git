@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.managerModel.Vacation_ReceiptDAO">
+	
+	<select id="selectCalendar" parameterType="String" resultType="ki.mo.ddi.managerModel.Vacation_ReceiptDTO">
+		select vacation_number,  vacation_name,  vacation_mmr,  vacation_group,  vacation_kind,  vacation_start,  vacation_end +1 as vacation_end, vacation_flag from vacation_receipt
+			where vacation_group=#{cadre_group}
+	</select>
+	
+	<insert id="insert_vacation" parameterType="hashMap">
+		{call
+
+			declare
+       		 begin	
+       		 
+		insert into vacation_receipt 
+			values (#{vacation_number}, #{vacation_name}, #{vacation_mmr}, #{vacation_group}, #{vacation_kind}, #{vacation_start}, #{vacation_end} , '0');
+		update manager_soldier set soldier_v_flag = '1' where soldier_number = #{vacation_number};
+       	update cadreUser_table set cadre_v_flag = '1' where cadre_number = #{vacation_number};	 
+       		 
+       		 end
+		}
+	
+	</insert>
+	
+	<delete id="reset_vacation_apply" parameterType="String">
+		{call
+			declare
+       		 begin	
+       		 
+			delete from vacation_receipt where vacation_number=#{vacation_number};
+			update manager_soldier set soldier_v_flag = '0' where soldier_number = #{vacation_number};
+			update cadreUser_table set cadre_v_flag = '0' where cadre_number = #{vacation_number};
+			
+		 end
+		}
+	</delete>
+	
+	<update id="vacation_apply_toCaptain" parameterType="String">
+		{call
+	
+				declare
+	       		 begin	
+	       		 
+			update vacation_receipt set vacation_flag ='1' where vacation_group = #{cadre_group};
+	       	insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+				values(msg_no.nextval,'KOSTA대대인사과장', CONCAT(#{cadre_group},'행정보급관') , CONCAT(#{cadre_group},'휴가신청'), sysdate );
+		 end
+		}
+	</update>
+	
+	<select id="selectCalendar_Sign" parameterType="String" resultType="ki.mo.ddi.managerModel.Vacation_ReceiptDTO">
+		select vacation_number,  vacation_name,  vacation_mmr,  vacation_group,  vacation_kind,  vacation_start,  vacation_end +1 as vacation_end, vacation_flag from vacation_receipt
+			where vacation_group=#{vacation_group} and vacation_flag = '1'
+	</select>
+	
+	<select id="getCount_soldier" parameterType="String" resultType="int">
+		select count(*) from manager_soldier where soldier_group = #{cadre_group}
+	</select>
+	
+	<select id="getCount_cadre" parameterType="String" resultType="int">
+		select count(*) from cadreUser_table where cadre_group = #{cadre_group}
+	</select>
+	
+	<select id="getCount_receipt" parameterType="String" resultType="int">
+		select count(*) from vacation_receipt where vacation_group = #{cadre_group}
+	</select>
+	
+	<select id="Sign_success_1" parameterType="String" resultType="ki.mo.ddi.managerModel.Vacation_ReceiptDTO">
+		select vacation_number, vacation_group, vacation_kind, vacation_start, vacation_end from vacation_receipt 
+			where vacation_group = #{vacation_group}
+	</select>
+	
+	<update id="Sign_success_2" parameterType="hashMap">
+		{call
+	
+			declare
+	       	 begin	
+	       		
+	       		update manager_soldier 
+	       			set soldier_vacation=#{vacation_kind}, soldier_s_vacation=#{vacation_start}, soldier_e_vacation=#{vacation_end}, soldier_v_flag= '2'
+	       				where soldier_number = #{vacation_number};
+	       		update cadreUser_table
+	       			set cadre_vacation=#{vacation_kind}, cadre_s_vacation=#{vacation_start}, cadre_e_vacation=#{vacation_end}, cadre_v_flag='2'
+	       				where cadre_number = #{vacation_number};
+	       		update vacation_receipt
+	       			set vacation_flag = '2' where vacation_flag='1' and vacation_group=#{vacation_group};
+
+		       	insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+					values(msg_no.nextval, CONCAT(#{vacation_group},'행정보급관'), 'KOSTA대대인사과장', '휴가 승인완료', sysdate );
+		 end
+		}
+	</update>
+	
+	<update id="Sign_refuse" parameterType="String">
+		{call
+	
+			declare
+	       	 begin	
+					update vacation_receipt
+				       			set vacation_flag = '3' where vacation_flag='1' and vacation_group=#{vacation_group};
+				    insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+								values(msg_no.nextval, CONCAT(#{vacation_group},'행정보급관'), 'KOSTA대대인사과장', '휴가 승인거절', sysdate );
+		 end
+		}
+	</update>
+	
+	<delete id="ok_bySergeant" parameterType="String">
+		delete from vacation_receipt where vacation_group=#{vacation_group} and vacation_flag = '2'
+	</delete>
+	
+	<delete id="reset_bySergeant" parameterType="String">
+		{call
+	
+			declare
+	       	 begin	
+	       		
+				delete from vacation_receipt where vacation_group=#{vacation_group} and vacation_flag = '3';
+				update manager_soldier set soldier_v_flag='0' where soldier_group = #{vacation_group} and soldier_v_flag ='1';
+	       		update cadreUser_table set cadre_v_flag='0' where cadre_group = #{vacation_group} and cadre_v_flag ='1';
+			 		
+		 end
+		}
+	</delete>
+	
+	<select id="getVacationProcessCount" parameterType="String" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='1' and vacation_group = #{vacation_group}
+	</select>
+	
+	<select id="getVacationAgreeCount" parameterType="String" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='2' and vacation_group = #{vacation_group}
+	</select>
+	
+	<select id="getVacationDisAgreelCount" parameterType="String" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='3' and vacation_group = #{vacation_group}
+	</select>
+	
+	<select id="getCenterVacationCount" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='1' and vacation_group = '본부중대'
+	</select>
+	<select id="getSquad1VacationCount" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='1' and vacation_group = '1중대'
+	</select>
+	<select id="getSquad2VacationCount" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='1' and vacation_group = '2중대'
+	</select>
+	<select id="getSquad3VacationCount" resultType="int">
+		select count(*) from vacation_receipt where vacation_flag='1' and vacation_group = '3중대'
+	</select>
+	
+	<select id="select_backup" parameterType="String" resultType="ki.mo.ddi.managerModel.Vacation_ReceiptDTO">
+		select vacation_name, vacation_mmr, vacation_group, vacation_kind, vacation_start, vacation_end+1 as vacation_end from vacation_backup where vacation_group = #{cadre_group}
+	</select>
+</mapper>

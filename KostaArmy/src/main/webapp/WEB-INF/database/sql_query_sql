@@ -1,0 +1,769 @@
+drop table cadreUser_Table;
+drop table supply_Table;
+drop table supply_Table_1;
+drop table supply_Table_2;
+drop table supply_Table_3;
+drop table supply_basket;
+drop table supply_receipt;
+drop table material_notice;
+drop table manager_Soldier;
+drop table soldier_FamilyTable;
+drop table week;
+drop table admin_daily;
+drop table vacation_receipt;
+drop table vacation_backup;
+drop table Message;
+drop table cadre_commuteList;
+
+drop SEQUENCE material_notice_seq;
+drop sequence seq_dailyid;
+drop sequence msg_no;
+
+
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1000, '동계전투복(상의)',601,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1001, '동계전투복(하의)',605,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1002, '하계전투복(상의)',310,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1003, '하계전투복(하의)',306,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1004, '동계활동복(상의)',415,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1005, '동계활동복(하의)',510,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1006, '하계활동복(상의)',570,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1007, '하계활동복(하의)',611,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1008, '춘계활동복(상의)',818,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1009, '춘계활동복(하의)',974,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1010, '방한복(상의)',15,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1011, '방한복(하의)',15,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1012, '방상외피',718,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1013, '방상내피(상의)',699,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1014, '방상내피(하의)',615,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1015, '방상내의(상의)',688,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1016, '방상내의(하의)',678,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1017, '설상',603,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1018, '안면마스크',610,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1019, '귀도리',606,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1020, '활동화',555,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1021, '실내화',590,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1022, '전투화',1301,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1023, '방한화',18,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1024, '방탄헬멧',638,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1025, '부유대',642,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1026, '정글모',678,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1027, '요대',615,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1028, '탄입대',603,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1029, '야전삽',601,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1030, '더플백',1818,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1031, '전투조끼',638,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1032, '대검',700,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1033, '대검집',718,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1034, '방독면',608,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1035, '정화통',618,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1036, '수통',601,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1037, '수통피',603,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1038, '탄알집',2504,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1039, '화생방보호구(상)',150,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1040, '화생방보호구(하)',150,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1041, '화생방보호구(신발)',150,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1042, '화생방보호구(장갑)',150,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1043, '화생방보호구(헬멧)',150,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1044, 'KMARK-1',618,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1045, 'KM-13',600,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1046, 'KD-1',601,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1047, '텐트',618,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1048, '폴대(암)',1330,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1049, '폴대(수)',3211,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1050, '지주핀',2586,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1051, '모포',1418,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1052, '매트리스',608,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1053, '베개',603,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1054, '베개피',621,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1055, '침낭',612,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1056, '침낭피',615,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1057, '판초우의',600,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1058, '반합',618,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1059, '군장',615,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1060, '군장덮개',627,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1061, 'H-FRAME',617,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1062, 'P-96K',108,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1063, 'P-85K',50,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1064, 'P-999K',55,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1065, '야간투시경',55,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1066, '망원경',167,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1068, 'X-반도',512,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1069, '포승줄',644,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1070, 'K-2',250,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1071, 'K-1',330,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1072, 'K-3',20,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1073, 'K-4',0,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1074, 'K-5',1,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1075, '총기수입도구',618,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1076, '방한장갑(우)',615,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1077, '방한장갑(좌)',613,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1078, '탄(K100)',5000,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1079, '유탄',354,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1080, ' 9x19㎜P 탄 ',200,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1081, '위장막',20,0);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1082, '위장막지지대',60,0);
+
+
+ -------------insert[소비물자-부대원(600명기준)(flag = 1)]-------------------
+
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2001, '팬티(사각)',1200 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2002, '팬티(삼각)',1500 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2003, '런닝(민소매)',1118 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2004, '런닝(반팔)',953 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2005, '양말(동계)',1115 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2006, '양말(하계)',806 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2007, '비누',462 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2008, '세면백',610 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2009, '치약',350 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2010, '칫솔',160 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2011, '면도기',623 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2012, '면도날',110 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2013, '계급장(이등병)',11 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2014, '계급장(일병)',101 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2015, '계급장(상병)',81 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2016, '계급장(병장)',101 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2017, '휴지',571 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2018, '전투식량(A형)',400 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2019, '전투식량(B형)',300 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2020, '전투식량(C형)',200 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2021, '맛스타',700 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2022, '건빵',1201 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2023, '쌀국수',621 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2024, '왕뚜껑',444 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2025, '육개장',375 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2026, '버디안',468 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2027, '면장갑',300 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2028, '경유200L',131 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2029, '윤활유1.5L',77 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2030, '강증유1L',65 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2031, '화기수입포',250,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2032, '부대마크',60 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2033, '분대장견장',75 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2034, '세탁세제(100g)',50 ,1);
+insert into supply_Table (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2035, '세탁세제(500g)',66 ,1);
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1000, '동계전투복(상의)',601,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1001, '동계전투복(하의)',605,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1002, '하계전투복(상의)',310,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1003, '하계전투복(하의)',306,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1004, '동계활동복(상의)',415,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1005, '동계활동복(하의)',510,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1006, '하계활동복(상의)',570,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1007, '하계활동복(하의)',611,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1008, '춘계활동복(상의)',818,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1009, '춘계활동복(하의)',974,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1010, '방한복(상의)',15,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1011, '방한복(하의)',15,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1012, '방상외피',718,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1013, '방상내피(상의)',699,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1014, '방상내피(하의)',615,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1015, '방상내의(상의)',688,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1016, '방상내의(하의)',678,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1017, '설상',603,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1018, '안면마스크',610,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1019, '귀도리',606,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1020, '활동화',555,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1021, '실내화',590,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1022, '전투화',1301,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1023, '방한화',18,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1024, '방탄헬멧',638,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1025, '부유대',642,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1026, '정글모',678,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1027, '요대',615,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1028, '탄입대',603,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1029, '야전삽',601,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1030, '더플백',1818,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1031, '전투조끼',638,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1032, '대검',700,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1033, '대검집',718,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1034, '방독면',608,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1035, '정화통',618,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1036, '수통',601,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1037, '수통피',603,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1038, '탄알집',2504,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1039, '화생방보호구(상)',150,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1040, '화생방보호구(하)',150,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1041, '화생방보호구(신발)',150,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1042, '화생방보호구(장갑)',150,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1043, '화생방보호구(헬멧)',150,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1044, 'KMARK-1',618,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1045, 'KM-13',600,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1046, 'KD-1',601,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1047, '텐트',618,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1048, '폴대(암)',1330,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1049, '폴대(수)',3211,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1050, '지주핀',2586,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1051, '모포',1418,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1052, '매트리스',608,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1053, '베개',603,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1054, '베개피',621,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1055, '침낭',612,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1056, '침낭피',615,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1057, '판초우의',600,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1058, '반합',618,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1059, '군장',615,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1060, '군장덮개',627,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1061, 'H-FRAME',617,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1062, 'P-96K',108,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1063, 'P-85K',50,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1064, 'P-999K',55,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1065, '야간투시경',55,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1066, '망원경',167,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1068, 'X-반도',512,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1069, '포승줄',644,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1070, 'K-2',250,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1071, 'K-1',330,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1072, 'K-3',20,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1073, 'K-4',0,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1074, 'K-5',1,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1075, '총기수입도구',618,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1076, '방한장갑(우)',615,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1077, '방한장갑(좌)',613,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1078, '탄(K100)',5000,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1079, '유탄',354,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1080, ' 9x19㎜P 탄 ',200,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1081, '위장막',20,0);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1082, '위장막지지대',60,0);
+
+
+ -------------insert[소비물자-부대원(600명기준)(flag = 1)]-------------------
+
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2001, '팬티(사각)',1200 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2002, '팬티(삼각)',1500 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2003, '런닝(민소매)',1118 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2004, '런닝(반팔)',953 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2005, '양말(동계)',1115 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2006, '양말(하계)',806 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2007, '비누',462 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2008, '세면백',610 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2009, '치약',350 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2010, '칫솔',160 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2011, '면도기',623 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2012, '면도날',110 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2013, '계급장(이등병)',11 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2014, '계급장(일병)',101 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2015, '계급장(상병)',81 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2016, '계급장(병장)',101 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2017, '휴지',571 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2018, '전투식량(A형)',400 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2019, '전투식량(B형)',300 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2020, '전투식량(C형)',200 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2021, '맛스타',700 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2022, '건빵',1201 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2023, '쌀국수',621 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2024, '왕뚜껑',444 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2025, '육개장',375 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2026, '버디안',468 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2027, '면장갑',300 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2028, '경유200L',131 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2029, '윤활유1.5L',77 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2030, '강증유1L',65 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2031, '화기수입포',250,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2032, '부대마크',60 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2033, '분대장견장',75 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2034, '세탁세제(100g)',50 ,1);
+insert into supply_Table_1 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2035, '세탁세제(500g)',66 ,1);
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1000, '동계전투복(상의)',601,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1001, '동계전투복(하의)',605,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1002, '하계전투복(상의)',310,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1003, '하계전투복(하의)',306,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1004, '동계활동복(상의)',415,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1005, '동계활동복(하의)',510,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1006, '하계활동복(상의)',570,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1007, '하계활동복(하의)',611,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1008, '춘계활동복(상의)',818,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1009, '춘계활동복(하의)',974,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1010, '방한복(상의)',15,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1011, '방한복(하의)',15,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1012, '방상외피',718,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1013, '방상내피(상의)',699,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1014, '방상내피(하의)',615,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1015, '방상내의(상의)',688,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1016, '방상내의(하의)',678,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1017, '설상',603,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1018, '안면마스크',610,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1019, '귀도리',606,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1020, '활동화',555,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1021, '실내화',590,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1022, '전투화',1301,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1023, '방한화',18,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1024, '방탄헬멧',638,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1025, '부유대',642,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1026, '정글모',678,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1027, '요대',615,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1028, '탄입대',603,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1029, '야전삽',601,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1030, '더플백',1818,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1031, '전투조끼',638,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1032, '대검',700,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1033, '대검집',718,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1034, '방독면',608,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1035, '정화통',618,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1036, '수통',601,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1037, '수통피',603,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1038, '탄알집',2504,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1039, '화생방보호구(상)',150,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1040, '화생방보호구(하)',150,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1041, '화생방보호구(신발)',150,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1042, '화생방보호구(장갑)',150,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1043, '화생방보호구(헬멧)',150,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1044, 'KMARK-1',618,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1045, 'KM-13',600,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1046, 'KD-1',601,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1047, '텐트',618,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1048, '폴대(암)',1330,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1049, '폴대(수)',3211,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1050, '지주핀',2586,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1051, '모포',1418,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1052, '매트리스',608,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1053, '베개',603,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1054, '베개피',621,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1055, '침낭',612,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1056, '침낭피',615,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1057, '판초우의',600,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1058, '반합',618,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1059, '군장',615,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1060, '군장덮개',627,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1061, 'H-FRAME',617,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1062, 'P-96K',108,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1063, 'P-85K',50,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1064, 'P-999K',55,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1065, '야간투시경',55,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1066, '망원경',167,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1068, 'X-반도',512,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1069, '포승줄',644,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1070, 'K-2',250,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1071, 'K-1',330,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1072, 'K-3',20,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1073, 'K-4',0,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1074, 'K-5',1,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1075, '총기수입도구',618,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1076, '방한장갑(우)',615,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1077, '방한장갑(좌)',613,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1078, '탄(K100)',5000,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1079, '유탄',354,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1080, ' 9x19㎜P 탄 ',200,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1081, '위장막',20,0);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1082, '위장막지지대',60,0);
+
+
+ -------------insert[소비물자-부대원(600명기준)(flag = 1)]-------------------
+
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2001, '팬티(사각)',1200 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2002, '팬티(삼각)',1500 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2003, '런닝(민소매)',1118 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2004, '런닝(반팔)',953 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2005, '양말(동계)',1115 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2006, '양말(하계)',806 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2007, '비누',462 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2008, '세면백',610 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2009, '치약',350 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2010, '칫솔',160 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2011, '면도기',623 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2012, '면도날',110 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2013, '계급장(이등병)',11 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2014, '계급장(일병)',101 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2015, '계급장(상병)',81 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2016, '계급장(병장)',101 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2017, '휴지',571 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2018, '전투식량(A형)',400 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2019, '전투식량(B형)',300 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2020, '전투식량(C형)',200 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2021, '맛스타',700 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2022, '건빵',1201 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2023, '쌀국수',621 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2024, '왕뚜껑',444 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2025, '육개장',375 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2026, '버디안',468 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2027, '면장갑',300 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2028, '경유200L',131 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2029, '윤활유1.5L',77 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2030, '강증유1L',65 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2031, '화기수입포',250,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2032, '부대마크',60 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2033, '분대장견장',75 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2034, '세탁세제(100g)',50 ,1);
+insert into supply_Table_2 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2035, '세탁세제(500g)',66 ,1);
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1000, '동계전투복(상의)',601,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1001, '동계전투복(하의)',605,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1002, '하계전투복(상의)',310,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1003, '하계전투복(하의)',306,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1004, '동계활동복(상의)',415,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1005, '동계활동복(하의)',510,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1006, '하계활동복(상의)',570,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1007, '하계활동복(하의)',611,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1008, '춘계활동복(상의)',818,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG) values( 1009, '춘계활동복(하의)',974,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1010, '방한복(상의)',15,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1011, '방한복(하의)',15,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1012, '방상외피',718,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1013, '방상내피(상의)',699,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1014, '방상내피(하의)',615,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1015, '방상내의(상의)',688,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1016, '방상내의(하의)',678,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1017, '설상',603,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1018, '안면마스크',610,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1019, '귀도리',606,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1020, '활동화',555,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1021, '실내화',590,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1022, '전투화',1301,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1023, '방한화',18,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1024, '방탄헬멧',638,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1025, '부유대',642,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1026, '정글모',678,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1027, '요대',615,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1028, '탄입대',603,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1029, '야전삽',601,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1030, '더플백',1818,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1031, '전투조끼',638,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1032, '대검',700,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1033, '대검집',718,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1034, '방독면',608,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1035, '정화통',618,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1036, '수통',601,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1037, '수통피',603,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1038, '탄알집',2504,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1039, '화생방보호구(상)',150,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1040, '화생방보호구(하)',150,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1041, '화생방보호구(신발)',150,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1042, '화생방보호구(장갑)',150,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1043, '화생방보호구(헬멧)',150,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1044, 'KMARK-1',618,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1045, 'KM-13',600,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1046, 'KD-1',601,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1047, '텐트',618,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1048, '폴대(암)',1330,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1049, '폴대(수)',3211,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1050, '지주핀',2586,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1051, '모포',1418,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1052, '매트리스',608,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1053, '베개',603,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1054, '베개피',621,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1055, '침낭',612,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1056, '침낭피',615,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1057, '판초우의',600,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1058, '반합',618,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1059, '군장',615,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1060, '군장덮개',627,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1061, 'H-FRAME',617,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1062, 'P-96K',108,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1063, 'P-85K',50,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1064, 'P-999K',55,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1065, '야간투시경',55,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1066, '망원경',167,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1068, 'X-반도',512,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1069, '포승줄',644,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1070, 'K-2',250,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1071, 'K-1',330,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1072, 'K-3',20,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1073, 'K-4',0,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1074, 'K-5',1,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1075, '총기수입도구',618,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1076, '방한장갑(우)',615,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1077, '방한장갑(좌)',613,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1078, '탄(K100)',5000,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1079, '유탄',354,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1080, ' 9x19㎜P 탄 ',200,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1081, '위장막',20,0);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 1082, '위장막지지대',60,0);
+
+
+ -------------insert[소비물자-부대원(600명기준)(flag = 1)]-------------------
+
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2001, '팬티(사각)',1200 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2002, '팬티(삼각)',1500 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2003, '런닝(민소매)',1118 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2004, '런닝(반팔)',953 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2005, '양말(동계)',1115 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2006, '양말(하계)',806 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2007, '비누',462 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2008, '세면백',610 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2009, '치약',350 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2010, '칫솔',160 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2011, '면도기',623 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2012, '면도날',110 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2013, '계급장(이등병)',11 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2014, '계급장(일병)',101 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2015, '계급장(상병)',81 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2016, '계급장(병장)',101 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2017, '휴지',571 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2018, '전투식량(A형)',400 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2019, '전투식량(B형)',300 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2020, '전투식량(C형)',200 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2021, '맛스타',700 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2022, '건빵',1201 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2023, '쌀국수',621 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2024, '왕뚜껑',444 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2025, '육개장',375 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2026, '버디안',468 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2027, '면장갑',300 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2028, '경유200L',131 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2029, '윤활유1.5L',77 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2030, '강증유1L',65 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2031, '화기수입포',250,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2032, '부대마크',60 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2033, '분대장견장',75 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2034, '세탁세제(100g)',50 ,1);
+insert into supply_Table_3 (SUPPLY_NUM,SUPPLY_NAME,SUPPLY_TOTAL,SUPPLY_FLAG)values( 2035, '세탁세제(500g)',66 ,1);
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into cadreUser_Table values('03-12345678', 'tktma8861', '박인사',42,'770111-1515313', '경상도 부산광역시 서면', '010-4329-3246', 'gnsu.jpg', '대위', 'O', 'Rh+', 'KOSTA사단 KOSTA연대', 'KOSTA대대', '인사과장', '01-02-21', '44-08-08', 'ROLE_MANAGE_CAPTAIN', 1, '인사','none',null,null,'0','asdfasdfasdf',0);
+insert into cadreUser_Table values('02-12345678', 'tktma8861', '박군수',42,'790124-1515313', '경상도 부산광역시 서면', '010-1429-3246', 'gnsu.jpg', '대위', 'O', 'Rh+', 'KOSTA사단 KOSTA연대', 'KOSTA대대', '군수과장', '01-02-21', '44-08-08', 'ROLE_SUPPLY_CAPTAIN', 1, '군수','none',null,null,'0','asdfasdfasdf',0);
+insert into cadreUser_table values ('07-12345678', 'tktma8861', '김상사',35,'921222-1235932', '충청도 천안시 동남구 안서동', '010-3461-3452', 'kimsdf.jpg', '상사', 'A', 'Rh-', 'KOSTA사단 KOSTA연대','2중대', '행정보급관' , '11/05/17', '33/07/22', 'ROLE_MASTER_SERGEANT', 1, '행정','none',null,null,'0','asdfasdfasdf',0 );
+
+
+--------------------------------------------------------------------------------------------
+
+create table cadreUser_Table(
+  cadre_number varchar2(1024) not null,
+  cadre_password varchar2(1024) not null,
+  cadre_name varchar2(1024) not null,
+  cadre_age int,
+  cadre_regidentNumber varchar2(1024),
+  cadre_address varchar2(1024),
+  cadre_phone varchar2(1024),
+  cadre_picture varchar2(1024),
+  cadre_mmr varchar2(1024) not null,
+  cadre_bloodType varchar2(1024),
+  cadre_SubbloodType varchar2(1024),
+  cadre_supergroup varchar2(1024) default 'KOSTA사단 KOSTA대대',
+  cadre_group varchar2(1024),
+  cadre_position varchar2(1024),
+  cadre_inputDate date,
+  cadre_outputDate date,
+  cadre_role varchar2(1024),
+  cadre_enabled int default 0 not null,
+  cadre_dept varchar2(1024),
+  cadre_vacation varchar2(1024) default 'none',
+  cadre_s_vacation date,
+  cadre_e_vacation date,
+  cadre_v_flag varchar2(1024) default '0',
+  cadre_remark varchar2(4000),
+  cadre_d_day int default 0,
+  primary key(cadre_number));
+
+create table supply_Table(
+  supply_num varchar2(1024) not null,
+  supply_name varchar2(1024) not null,
+  supply_order int default 0 not null,
+  supply_set int default 0 not null,
+  supply_total int not null,
+  supply_flag int not null,
+  supply_comments varchar2(1024) default 'none',
+  primary key(supply_num));
+  
+  create table supply_Table_1(
+  supply_num varchar2(1024) not null,
+  supply_name varchar2(1024) not null,
+  supply_order int default 0 not null,
+  supply_set int default 0 not null,
+  supply_total int not null,
+  supply_flag int not null,
+  supply_comments varchar2(1024) default 'none',
+  primary key(supply_num));
+  
+  create table supply_Table_2(
+  supply_num varchar2(1024) not null,
+  supply_name varchar2(1024) not null,
+  supply_order int default 0 not null,
+  supply_set int default 0 not null,
+  supply_total int not null,
+  supply_flag int not null,
+  supply_comments varchar2(1024) default 'none',
+  primary key(supply_num));
+  
+  create table supply_Table_3(
+  supply_num varchar2(1024) not null,
+  supply_name varchar2(1024) not null,
+  supply_order int default 0 not null,
+  supply_set int default 0 not null,
+  supply_total int not null,
+  supply_flag int not null,
+  supply_comments varchar2(1024) default 'none',
+  primary key(supply_num));
+
+create table supply_basket(
+  osupply_num varchar2(1024) not null,
+  osupply_name varchar2(1024) not null,
+  osupply_order int default 0 not null,
+  osupply_flag int not null,
+  primary key(osupply_num));   
+  
+  
+create table supply_receipt(
+  supply_r_date date,
+  supply_r_num varchar2(1024) not null,
+  supply_r_name varchar2(1024) not null,
+  supply_r_order int default 0 not null,
+  supply_r_total int default 0 not null,
+  supply_r_comments varchar2(1024) default 'none',
+  supply_r_flag int default 0 not null,
+  supply_group varchar(1024),
+  supply_r_consumeCount int default 0 not null
+);
+
+create table material_notice (
+   num int not null,
+   dept varchar2(1024) not null,
+   title varchar2(1024) not null,
+   writer varchar2(1024) not null,
+   mmr varchar2(1024) not null,
+   position varchar2(1024) not null,
+   content varchar2(4000),
+   Idate date,
+   hit int default 0,
+   cadre_num varchar2(1024) not null,
+   cadre_group varchar2(1024) not null,
+   primary key(num));
+
+CREATE SEQUENCE material_notice_seq;
+alter sequence material_notice_seq nocache;
+ 
+create table manager_Soldier(
+  soldier_number varchar2(1024) not null,
+  soldier_name varchar2(1024) not null,
+  soldier_age int, 
+  soldier_regidentNumber varchar2(1024) ,
+  soldier_address varchar2(1024) ,
+  soldier_phone varchar2(1024) ,
+  soldier_picture varchar2(1024) default 'default.jpg',
+  soldier_mmr varchar2(1024) default '이등병',
+  soldier_bloodType varchar2(1024) ,
+  soldier_subbloodType varchar2(1024),
+  soldier_supergroup varchar2(1024) default 'KOSTA사단 KOSTA대대', 
+  soldier_group varchar2(1024),
+  soldier_position varchar2(1024) ,
+  soldier_inputDate date ,
+  soldier_outputDate date ,
+  soldier_remark varchar2(1024),
+  soldier_placement int default '1111',
+  soldier_vacation varchar2(1024) default 'none',
+  soldier_s_vacation date,
+  soldier_e_vacation date,
+  soldier_enabled int default 0 not null,
+  soldier_v_flag varchar2(1024) default '0',
+  soldier_d_day int default 0,
+  primary key(soldier_number));
+
+create table soldier_FamilyTable(
+    soldier_number varchar2(1024) not null,
+    famRel1 varchar2(1024) default '',
+    famName1 varchar2(1024) default '', 
+    famAge1 varchar2(1024) default '',
+    famJob1 varchar2(1024) default '', 
+    famPhone1 varchar2(1024) default '',
+    famRel2 varchar2(1024) default '',
+    famName2 varchar2(1024) default '', 
+    famAge2 varchar2(1024) default '',
+    famJob2 varchar2(1024) default '', 
+    famPhone2 varchar2(1024) default '',
+    famRel3 varchar2(1024) default '',
+    famName3 varchar2(1024) default '', 
+    famAge3 varchar2(1024) default '',
+    famJob3 varchar2(1024) default '', 
+    famPhone3 varchar2(1024) default '',
+    primary key(soldier_number)
+);
+
+create table week(
+    w_num varchar2(1024),
+    weekly varchar2(1024),
+    w_monday varchar2(1024),
+    w_tuesday varchar2(1024),
+    w_wednesday varchar2(1024),
+    w_thursday varchar2(1024),
+    w_friday varchar2(1024),
+    w_saturday varchar2(1024),
+    w_sunday varchar2(1024),
+    cadre_group varchar2(1024),
+    primary key(w_num)
+);
+
+create table admin_daily(
+dailyID int PRIMARY KEY,
+dailycontent varchar2(4000),
+dailymemo varchar2(1024),
+dailyTime varchar2(1024),
+cadre_group varchar2(1024)
+);
+
+create sequence seq_dailyid
+start with 1
+maxvalue 9999
+minvalue 0
+increment by 1
+cycle
+nocache;
+
+create table vacation_receipt(
+  vacation_number varchar2(1024) not null,
+  vacation_name varchar2(1024) not null,
+  vacation_mmr varchar2(1024) not null,
+  vacation_group varchar2(1024) not null,
+  vacation_kind varchar2(1024) not null,
+  vacation_start date,
+  vacation_end date,
+  vacation_flag varchar2(30) default '0',
+  primary key(vacation_number)
+);
+
+create table vacation_backup(
+  vacation_number varchar2(1024) not null,
+  vacation_name varchar2(1024) not null,
+  vacation_mmr varchar2(1024) not null,
+  vacation_group varchar2(1024) not null,
+  vacation_kind varchar2(1024) not null,
+  vacation_start date,
+  vacation_end date,
+  vacation_part varchar2(30)
+);
+
+
+create table cadre_commuteList (
+cadre_number varchar(1024) not null,
+start_time date,
+end_time date,
+over_time date,
+over_pay int default 0,
+commute_flag int default 0
+);
+
+create table Message (
+    msg_no int PRIMARY KEY,
+    msg_Flag int default 1,
+    msg_To_number varchar2(1024) not null,
+    msg_From_number varchar2(1024) not null,
+    msg_Content varchar2(4000) not null,
+    msg_Date date
+);
+
+
+create Sequence msg_no
+    start with 1
+    increment by 1
+    nomaxvalue
+    NOMINVALUE
+    nocycle
+    nocache;
+
+create table cadre_payList(
+cadre_sendPayDate date not null,
+cadre_number varchar2(1024) not null,
+cadre_normalPay int not null,
+cadre_overpay int default 0,
+cadre_incomeTax int,
+cadre_sub_incomeTax int,
+cadre_healthyTax int);
+

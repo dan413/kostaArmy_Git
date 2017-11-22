@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.content_part{
+   margin-top:-16px;
+   background-color: #fff;
+   width: 100%;
+   height:100%;
+}
+.soldier_title{
+   text-align: "center";
+}
+
+.info_part_1{
+   margin-top: 20px;
+   width:100%;
+   height:350px;
+   background-color: #fff;
+   padding: 30px;
+}
+
+.info_part_2{
+   margin-top: 20px;
+   width:100%;
+   height:400px;
+   background-color: #fff;
+   padding: 30px;
+}
+
+.picture_part{
+   width:15%;
+   height:350px;
+   border: 1px solid #d5d5d5;
+   border-radius: 10px;
+   float:left;
+   text-align: center;
+   
+}
+
+.sub_info_part_1{
+   margin-left:50px;
+   width:80%;
+   height:350px;
+   background-color: #fff;
+   float:left;
+}
+
+.sub_info_part_2{
+   width:98%;
+   height:400px;
+   background-color: #fff;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

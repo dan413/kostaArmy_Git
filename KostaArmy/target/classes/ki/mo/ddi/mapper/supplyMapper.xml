@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.supplyModel.Supply_TableDAO">
+	
+	<update id="SupplyCompleteAdd" parameterType="ki.mo.ddi.supplyModel.Supply_TableDTO"> <!-- 완료  결제 올렸을떄-->
+		{call
+			declare
+	       	begin
+				update ${tableName} set supply_order = #{supply_order} where supply_num = #{supply_num};
+				insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+						values(msg_no.nextval,'KOSTA대대군수과장', CONCAT(#{cadre_group},'행정보급관') , CONCAT(#{cadre_group},'물자신청'), sysdate );
+			end
+		}
+	</update>
+	
+	<select id="searchDate" parameterType="String" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from supply_receipt where supply_r_date = #{date}
+	</select>
+	
+	
+	<select id="getCurrentSupplyList" parameterType="String" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from ${value} <!-- 완료 -->
+	</select>
+	
+	<select id="selectByKey" parameterType="hashMap" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from ${tableName}
+			<where>
+				
+				<if test="arr1 == 'supply_normal'">
+						supply_flag = 0 
+						
+							<if test="arr =='supply_num'">
+								and supply_num like '%' || #{keyvalue} || '%'
+							</if>
+							
+							<if test="arr =='supply_name'">
+								and supply_name like '%' || #{keyvalue} || '%'
+							</if>
+						
+				</if>
+				
+				<if test="arr1 == 'supply_complete'">
+					supply_flag = 1 
+					
+						
+							<if test="arr =='supply_num'">
+								and supply_num like '%' || #{keyvalue} || '%'
+							</if>
+							
+							<if test="arr =='supply_name'">
+								and supply_name like '%' || #{keyvalue} || '%'
+							</if>
+						
+				</if>
+			</where>
+	</select>
+	
+	<select id="selectByOrder" parameterType="String" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from ${value} where supply_order != 0 or supply_set !=0 
+	</select> <!-- 완료 -->
+	
+	<select id="countByOrder" parameterType="String" resultType="int">
+		select count(*) from ${value} where supply_order = 0 and supply_set != 0
+	</select> <!-- 완료 -->
+	
+	<select id="getAgreeCount" parameterType="String" resultType="int">
+		select count(*) from ${value} where supply_set != 0
+	</select>	<!-- 완료 --> 
+	
+	<update id="deleteOrder" parameterType="HashMap">
+		update ${tableName} set supply_order = 0, supply_comments = 'none' where supply_num = #{supply_num}
+	</update> 	<!-- 완료 -->
+	
+	<select id="getSupplyAgreeList" parameterType="String" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select supply_num, supply_name ,supply_set, supply_total from ${value} where supply_set != 0
+	</select> 	<!-- 완료 -->
+	
+	<insert id="insertReceive" parameterType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		insert into supply_receipt(supply_r_date, supply_r_num, supply_r_name, supply_r_order, supply_r_total) values(#{supply_r_date1}, #{supply_num}, #{supply_name}, #{supply_set}, #{supply_total})
+	</insert>
+	
+	<update id="resetSupply_Set" parameterType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		update ${tableName} set supply_set = 0 where supply_num = #{supply_num}
+	</update>
+	
+	<select id="selectByReceive" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from supply_receipt
+	</select>
+	
+	<select id="sign_Order_1" parameterType="HashMap" resultType="int">
+		select supply_order from ${tableName} where supply_num = #{supply_num}
+	</select>
+	
+	<update id="sign_Order_2" parameterType="ki.mo.ddi.supplyModel.Supply_TableDTO"> <!-- 승인 -->
+		{call
+			declare
+	       	begin
+				update ${tableName} set supply_order = 0, supply_set=#{supply_order} where supply_num = #{supply_num};
+	 			insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+						values(msg_no.nextval, CONCAT(#{cadre_group},'행정보급관'), 'KOSTA대대군수과장', CONCAT(#{supply_name},'물자 승인완료'), sysdate );
+	 		end
+		}
+	</update>
+	
+	<update id="Sign_Order_Reset" parameterType="hashMap"> <!-- 거절 -->
+		{call
+			declare
+	       	begin
+				update ${tableName} set supply_comments= #{sign_reason} where supply_num = #{supply_num};
+				insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
+								values(msg_no.nextval, CONCAT(#{cadre_group},'행정보급관'), 'KOSTA대대군수과장', CONCAT(#{supply_name},'물자 승인거절'), sysdate );
+			end
+		}
+	</update>
+	
+	
+	<select id="getCurrentOrderSupplyList" parameterType="String" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from ${value} where supply_order != 0 or supply_set != 0
+	</select>
+	
+	<select id="getTotal" parameterType="HashMap" resultType="ki.mo.ddi.supplyModel.Supply_TableDTO">
+		select * from ${tableName} where supply_num = #{supply_num}
+	</select>
+	
+	<update id="setConsume_total" parameterType="HashMap">
+ 		update ${tableName} set supply_total = #{supply_total} where supply_num = #{supply_num}
+	</update>
+	
+	<!-- 군수과장 -->
+	<select id="getSupplyOrderCountCenter" resultType="int">
+		select count(*) from supply_table where supply_order != 0
+	</select>
+	
+	<select id="getSupplyOrderCount1" resultType="int">
+		select count(*) from supply_table_1 where supply_order != 0
+	</select>
+	
+	<select id="getSupplyOrderCount2" resultType="int">
+		select count(*) from supply_table_2 where supply_order != 0
+	</select>
+	
+	<select id="getSupplyOrderCount3" resultType="int">
+		select count(*) from supply_table_3 where supply_order != 0
+	</select>
+</mapper>

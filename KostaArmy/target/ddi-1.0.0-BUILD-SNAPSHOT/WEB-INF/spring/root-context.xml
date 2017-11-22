@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 공통빈 : DB 작업 ... -->
+	<bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+ 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+ 		<property name="username" value="dorothy"></property>
+ 		<property name="password" value="3021"></property>
+ 	</bean>
+ 	
+ 	<!-- jdbcTemplate  작업
+ 	 회원 member 사용할것 그냥 놔누세요
+ 	 
+ 	 -->
+ 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+ 	 	<property name="dataSource" ref="driverManagerDataSource"></property>
+ 	</bean>
+ 	
+ 	<!-- 파일업로드 설정 -->
+ 	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+      <property value="10485760" name="maxUploadSize"/>
+    </bean>
+    
+ 	<!-- Mybatis 설정 -->
+ 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="driverManagerDataSource"></property>
+		<property name="mapperLocations" value="classpath*:ki/mo/ddi/mapper/*.xml" />
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+	</bean>
+	<!-- 설정 END -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="driverManagerDataSource"></property>
+	</bean>
+</beans>

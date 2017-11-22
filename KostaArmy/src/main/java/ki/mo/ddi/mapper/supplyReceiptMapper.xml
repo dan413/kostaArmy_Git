@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ki.mo.ddi.supplyModel.Supply_ReceiptDAO">
+	<select id="selectAll" resultType="ki.mo.ddi.supplyModel.Supply_ReceiptDTO">
+		select * from supply_receipt
+	</select>
+	
+	<select id="getSearchDateList" parameterType="HashMap" resultType="ki.mo.ddi.supplyModel.Supply_ReceiptDTO">
+		select * from supply_receipt where supply_r_flag = #{receipt_type} and to_char(supply_r_date, 'yyyymmdd') = to_char(#{date}, 'yyyymmdd') 
+	</select>
+	
+	<insert id="insertReceipt" parameterType="ki.mo.ddi.supplyModel.Supply_ReceiptDTO">
+		insert into supply_receipt(supply_r_date, supply_r_num, supply_r_name, supply_r_order, supply_r_total, supply_group)
+		 values(#{supply_r_date}, #{supply_r_num}, #{supply_r_name}, #{supply_r_order}, #{supply_r_total}, #{supply_group})
+	</insert>
+	
+	<update id="setTotal" parameterType="ki.mo.ddi.supplyModel.Supply_ReceiptDTO">
+		update ${tableName} set supply_total = #{supply_r_total} where supply_num = #{supply_r_num}
+	</update>
+	
+	<insert id="setConsumeReceipt" parameterType="ki.mo.ddi.supplyModel.Supply_ReceiptDTO">
+		insert into supply_receipt(supply_r_date, supply_r_num, supply_r_name, supply_r_comments, supply_r_flag, supply_r_consumeCount,
+		supply_r_total, supply_group) 
+		values(#{supply_r_date}, #{supply_r_num}, #{supply_r_name}, #{supply_r_comments}, #{supply_r_flag}, #{supply_r_consumeCount}, #{supply_r_total}, #{supply_group})
+	</insert>
+</mapper>

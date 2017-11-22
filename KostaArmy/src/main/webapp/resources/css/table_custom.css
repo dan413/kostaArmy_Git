@@ -1,0 +1,116 @@
+@charset "UTF-8";
+/* =====table===== */
+.datagrid table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 100%;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.datagrid {
+	background: #fff;
+	overflow: hidden;
+	border: 2px solid #474747;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin: 10px 0;
+	height: auto;
+	overflow-y: auto;
+	align-content: center;
+	text-align: center;
+	align-items: center;
+}
+
+.datagrid table thead {
+	/* display: block; */
+	/* position: sticky; */
+	/* position: fixed; */
+	position: relative;
+	top: expression(offsetParent.scrollTop);
+	z-index: 30;
+}
+
+.datagrid tbody, thead tr {
+	/* display: table; */
+	/* width: auto; */
+	/* width: 100%;
+	table-layout: fixed;
+	table-layout: auto;
+	white-space: nowrap; */
+	
+}
+
+.datagrid table {
+	height: auto;
+	overflow-y: auto;
+}
+
+.datagrid table td, .datagrid table th {
+	padding: 6px 7px;
+}
+
+.datagrid table thead th {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000
+		), color-stop(1, #7A7976));
+	background: -moz-linear-gradient(center top, #000000 5%, #7A7976 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000',
+		endColorstr='#7A7976');
+	background-color: #000000;
+	color: #EBF3FF;
+	font-size: 1em;
+	font-weight: bold;
+	border-left: 2px solid #89A19C;
+	font-weight: bold;
+}
+
+.datagrid table thead tr th {
+	text-align: center;
+}
+
+.datagrid table thead th:first-child {
+	border: none;
+}
+
+.datagrid table tbody tr td {
+	color: #242424;
+	border-left: 2px solid #E1EEF4;
+	border-bottom: 2px solid #E1EEF4;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+.datagrid table tbody .alt td {
+	background: #E1EEF4;
+	color: #362323;
+}
+
+.datagrid table tbody td:first-child {
+	border-left: none;
+}
+
+table.sortable th:not (.sorttable_sorted ):not (.sorttable_sorted_reverse
+	 ):not (.sorttable_nosort ):after {
+	content: " \25B4\25BE"
+}
+
+table.sortable th::after, th.sorttable_sorted::after, th.sorttable_sorted_reverse::after
+	{
+	content: " ";
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+}
+
+th.sorttable_sorted::after {
+	background: url(my-sorted-icon.png);
+	background-size: contain;
+}
+
+th.sorttable_sorted_reverse::after {
+	background: url(my-sorted-reversed-icon.png);
+	background-size: cover;
+}
