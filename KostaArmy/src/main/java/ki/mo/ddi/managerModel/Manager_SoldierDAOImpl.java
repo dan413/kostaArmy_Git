@@ -112,5 +112,10 @@ public class Manager_SoldierDAOImpl implements Manager_SoldierDAO {
 		return ms_DAO.getSoldier_vacationMember(cadre_group);
 	}
 
+	@Override
+	public List<Manager_SoldierDTO> getOuterSoldier() {
+		Manager_SoldierDAO ms_DAO = sqlSession.getMapper(Manager_SoldierDAO.class);
+		return ms_DAO.getOuterSoldier();
+	}
 	
 }

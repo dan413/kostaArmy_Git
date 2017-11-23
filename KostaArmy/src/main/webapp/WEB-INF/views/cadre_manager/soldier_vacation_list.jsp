@@ -49,7 +49,7 @@
 					<table>
 						<thead>
 							<tr>
-								<th style="font-size: xx-large; font-weight: bolder;">익월 중대 휴가자 관리</th>
+								<th style="font-size: xx-large; font-weight: bolder;">익월 중대 출타자 관리</th>
 							</tr>
 						</thead>
 					</table>
@@ -78,8 +78,8 @@
 								<th>이름</th>
 								<th>계급</th>
 								<th>소속</th>
-								<th>휴가종류</th>
-								<th>휴가기간</th>
+								<th>출타종류</th>
+								<th>출타기간</th>
 								<th>조회</th>
 							</tr>
 						</thead>
@@ -113,7 +113,7 @@
 											class="btn btn-primary btn_detailSoldier.do" value="복귀 처리"
 											onclick="window.location.href='cadre_vacation_end.do?cadre_number=${list.cadre_number}'">
 									</c:if> <c:if test="${list.cadre_current_vacation =='end_before'}">
-											-휴가중-
+											-출타중-
 										</c:if> <c:if test="${list.cadre_current_vacation =='end_after'}">
 										<input type="button"
 											class="btn btn-primary btn_detailSoldier.do" value="복귀 처리"
@@ -132,7 +132,7 @@
 						<thead>
 							<tr>
 								<th style="font-size: xx-large; font-weight: bolder;">익월 중대
-									휴가자 관리</th>
+									출타자 관리</th>
 							</tr>
 						</thead>
 					</table>
@@ -164,8 +164,8 @@
 								<th>이름</th>
 								<th>계급</th>
 								<th>소속</th>
-								<th>휴가종류</th>
-								<th>휴가기간</th>
+								<th>출타종류</th>
+								<th>출타기간</th>
 								<th>조회</th>
 							</tr>
 						</thead>
@@ -199,7 +199,7 @@
 											class="btn btn-primary btn_detailSoldier.do" value="복귀 처리"
 											onclick="window.location.href='soldier_vacation_end.do?soldier_number=${list.soldier_number}'">
 									</c:if> <c:if test="${list.solider_current_vacation =='end_before'}">
-											-휴가중-
+											-출타중-
 										</c:if> <c:if test="${list.solider_current_vacation =='end_after'}">
 										<input type="button"
 											class="btn btn-primary btn_detailSoldier.do" value="복귀 처리"

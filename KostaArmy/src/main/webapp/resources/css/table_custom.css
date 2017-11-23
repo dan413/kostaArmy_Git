@@ -13,7 +13,7 @@
 .datagrid {
 	background: #fff;
 	overflow: hidden;
-	border: 2px solid #474747;
+	border: 3px solid #474747;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -54,13 +54,18 @@
 }
 
 .datagrid table thead th {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000
+	/* background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000
 		), color-stop(1, #7A7976));
 	background: -moz-linear-gradient(center top, #000000 5%, #7A7976 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000',
 		endColorstr='#7A7976');
-	background-color: #000000;
-	color: #EBF3FF;
+	background-color: #000000; */
+/* background: #005C97;  fallback for old browsers
+background: -webkit-linear-gradient(to right, #363795, #005C97);  Chrome 10-25, Safari 5.1-6
+background: linear-gradient(to right, #363795, #005C97); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #d4d4d4;
+	
+	color: #363636;
 	font-size: 1em;
 	font-weight: bold;
 	border-left: 2px solid #89A19C;

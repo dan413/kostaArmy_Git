@@ -2278,6 +2278,58 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	border-color: #007bff
 }
 
+.btn-all_notice {
+	width:100%;
+	height:135px;
+	color: #fff;
+	/* background-color: #2c952c;
+	border-color: #007bff; */
+}
+
+.btn-supply_notice {
+	width:100%;
+	height:135px;
+	color: #fff;
+	/* background-color: #778899;
+	border-color: #000000 */
+}
+
+.btn-person_notice {
+	width:100%;
+	height:135px;
+	color: #fff;
+ 	/* background-color: #670000;
+	border-color: #670000; */
+}
+
+.btn-manage_notice {
+	width:100%;
+	height:135px;
+	color: #fff;
+	/* background-color: #476600;
+	border-color: #476600; */ 
+}
+
+.btn-supply_notice:hover {
+	background-color: #BDBDBD;
+}
+
+.btn-person_notice:hover {
+	background-color: #BDBDBD;
+}
+
+.btn-manage_notice:hover {
+	background-color: #BDBDBD;
+}
+
+.btn-info_notice:hover {
+	background-color: #BDBDBD;
+}
+
+.btn-all_notice:hover {
+	background-color: #BDBDBD;
+}
+
 .btn-primary:hover {
 	color: #fff;
 	background-color: #0069d9;
@@ -3960,12 +4012,18 @@ tbody.collapse.show {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-	color: rgba(255, 255, 255, .5)
+	color: #ffffff;
+
 }
+.navbar-dark .navbar-nav .nav-link:hover {
+		transition: 0.25s;
+		/* background-color: #969696; */
+		color : #ca4200;
+	}
 
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover
 	{
-	color: rgba(255, 255, 255, .75)
+	color: #ffffff;
 }
 
 .navbar-dark .navbar-nav .nav-link.disabled {
@@ -4698,7 +4756,28 @@ to {
 	-ms-flex-pack: center;
 	justify-content: center;
 	color: #fff;
-	background-color: #FAED7D
+	background-color: #1DDB16
+}
+.progress-bar-good {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	color: #fff;
+	background-color: #FF5E00
+}
+
+.progress-bar-away {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	color: #fff;
+	background-color: #990085
 }
 
 .progress-bar-striped {
@@ -5059,7 +5138,7 @@ button.close {
 	bottom: 0;
 	left: 0;
 	z-index: 1040;
-	background-color: #000
+	background-color: #e3e3e3
 }
 
 .modal-backdrop.fade {
@@ -5741,7 +5820,7 @@ a.bg-light:focus, a.bg-light:hover {
 }
 
 .bg-dark {
-	background-color: #343a40 !important
+	background-color: #464646!important   /* 상단헤더메인칼라 */
 }
 
 a.bg-dark:focus, a.bg-dark:hover {

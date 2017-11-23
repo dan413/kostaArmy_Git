@@ -261,4 +261,8 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getOuterSoldier" resultType="ki.mo.ddi.managerModel.Manager_SoldierDTO">
+      select * from manager_soldier where soldier_v_flag = '3'
+   </select>
 </mapper>

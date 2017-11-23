@@ -91,27 +91,27 @@
    <div class="content-wrapper"> 
       <div class="content_part">
       	<div style="padding-right: 1%; padding-top: 1%; padding-left: 1%; border-radius: 20px; float:left;">
-      		<div style="width:25%; float:left; background-color: #000; border-radius: 20px; height:400px;">
+      		<div style="border: 3px solid #474747; width:25%; float:left; background-color: #000; border-radius: 20px; height:400px;">
       			<img
 					src="${pageContext.request.contextPath}/resources/images/jisang.jpg"
-					style="width: 100%; height: 400px; border-radius: 20px;">
+					style="width: 100%; height: 100%; border-radius: 20px;">
       		</div>
-			<div class="cycle-slideshow" data-cycle-timeout="5000" style="margin-left:24px; width:73%; float:left;">
+			<div class="cycle-slideshow" data-cycle-timeout="5000" style="border-radius: 20px; border: 3px solid #474747; width:73%; float:right;">
 				<img
 					src="${pageContext.request.contextPath}/resources/images/milta1.jpg"
-					style="width: 100%; height: 400px; border-radius: 20px;">
+					style="width: 100%; height: 395px; border-radius: 20px;">
 				<img
 					src="${pageContext.request.contextPath}/resources/images/milta2.jpg"
-					style="width: 100%; height: 400px; border-radius: 20px;">
+					style="width: 100%; height: 395px; border-radius: 20px;">
 				<img
 					src="${pageContext.request.contextPath}/resources/images/milta3.jpg"
-					style="width: 100%; height: 400px; border-radius: 20px;">
+					style="width: 100%; height: 395px; border-radius: 20px;">
 				<img
 					src="${pageContext.request.contextPath}/resources/images/milta4.jpg"
-					style="width: 100%; height: 400px; border-radius: 20px;">
+					style="width: 100%; height: 395px; border-radius: 20px;">
 				<img
 					src="${pageContext.request.contextPath}/resources/images/milta5.jpg"
-					style="width: 100%; height: 400px; border-radius: 20px;">
+					style="width: 100%; height: 395px; border-radius: 20px;">
 			</div>
 		</div>
 		<div style="width:60%; padding-right: 1%; padding-left: 1%; float: left;">
@@ -122,7 +122,7 @@
 							<th colspan="6">공 지 사 항</th>
 						</tr>
 					</thead>
-					<tr style="background-color: #D5D5D5;">
+					<tr style="background-color: #BDBDBD;">
 						<td style="width:50px;">글번호</td>
 						<td style="width:50px;">부서</td>
 						<td style="width:250px;">제목</td>

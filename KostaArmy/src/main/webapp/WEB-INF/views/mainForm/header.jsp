@@ -30,7 +30,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarResponsive">
+		<div class="collapse navbar-collapse" id="navbarResponsive" style="height: 30px;">
 			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
 				<!--board-->
@@ -74,8 +74,8 @@
 	                  <ul class="sidenav-second-level collapse" id="manager_sub">
 	                     <li><a href="soldierList.do">- 병 사 관 리</a></li>
 	                     <li><a href="cadreList.do">- 간 부 관 리</a></li>
-	                     <li><a href="vacation_SignForm.do"> - 휴 가 관 리</a>
-	                     <li><a href="#">- 총 원 관 리</a></li>
+	                     <li><a href="vacation_SignForm.do"> - 출 타 관 리</a>
+	                     <li><a href="captain_Total_gragh.do">- 총 원 현 황</a></li>
 	                  </ul>
 	               </se:authorize> 
 	               <se:authorize access="hasRole('ROLE_MASTER_SERGEANT')">
@@ -87,11 +87,11 @@
 	                           <li><a href="cadreList.do">- ${group} 간 부 조 회</a></li>
 	                           <li><a href="sergeant_Total_gragh.do">- ${group} 유 동 병 력</a></li>
 	                        </ul>
-	                     <li><a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2"> - 휴 가 관 리</a></li>
+	                     <li><a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2"> - 출 타 관 리</a></li>
 	                        <ul class="sidenav-third-level collapse" id="collapseMulti2">
 	                           <li><a href="soldierOutSide.do">- 출 타 자 등 록</a></li>
-	                           <li><a href="vaction_soldierList.do">- 휴 가 자 관 리</a></li>
-	                           <li><a href="Total_vacation.do">- 지 난 휴 가 내 역</a></li>
+	                           <li><a href="vaction_soldierList.do">- 출 타 자 관 리</a></li>
+	                           <li><a href="Total_vacation.do">- 지 난 출 타 내 역</a></li>
 	                        </ul>
 	                  </ul>
 	               </se:authorize>
@@ -120,8 +120,8 @@
 							</ul>
 							<li><a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti5"> - 월 간 업 무</a></li>
 							<ul class="sidenav-third-level collapse" id="collapseMulti5">
-								<li><a href="Vacation_Calendar.do">- 월 간 휴 가 종 합</a></li>
-								<li><a href="monthPlan.do">- 월 간 종 합</a></li>
+								<li><a href="Vacation_Calendar.do">- 월 간 출 타 종 합</a></li>
+								<li><a href="monthPlan.do">- 월 간 계 획</a></li>
 							</ul>
 						</ul>
 					</se:authorize>

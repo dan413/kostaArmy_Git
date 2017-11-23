@@ -372,4 +372,9 @@
     <select id="getSelect_vacation" parameterType="String" resultType="ki.mo.ddi.cadreModel.CadreDTO">
     	select * from cadreUser_table where cadre_group=#{cadre_group} and cadre_v_flag = '3'
     </select>
+    
+    <select id="getOuterCadre" resultType="ki.mo.ddi.cadreModel.CadreDTO">
+       select * from cadreUser_table where cadre_v_flag = '3'
+    </select>
+    
 </mapper>

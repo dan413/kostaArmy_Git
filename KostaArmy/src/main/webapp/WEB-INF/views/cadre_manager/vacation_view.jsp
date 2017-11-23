@@ -71,7 +71,7 @@
       <div class="content_part">
 
        <div class="supply_title" style="margin-top:30px;">
-				<h3 align="center">${cadre_group } 휴 가 신 청 현 황</h3>
+				<h3 align="center">${cadre_group } 출 타 신 청 현 황</h3>
 		</div>
 		<br>
         <hr>

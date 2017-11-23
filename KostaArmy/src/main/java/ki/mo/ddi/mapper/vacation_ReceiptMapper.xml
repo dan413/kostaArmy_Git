@@ -45,7 +45,7 @@
 	       		 
 			update vacation_receipt set vacation_flag ='1' where vacation_group = #{cadre_group};
 	       	insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
-				values(msg_no.nextval,'KOSTA대대인사과장', CONCAT(#{cadre_group},'행정보급관') , CONCAT(#{cadre_group},'휴가신청'), sysdate );
+				values(msg_no.nextval,'KOSTA대대인사과장', CONCAT(#{cadre_group},'행정보급관') , CONCAT(#{cadre_group},' 출타신청'), sysdate );
 		 end
 		}
 	</update>
@@ -68,7 +68,7 @@
 	</select>
 	
 	<select id="Sign_success_1" parameterType="String" resultType="ki.mo.ddi.managerModel.Vacation_ReceiptDTO">
-		select vacation_number, vacation_group, vacation_kind, vacation_start, vacation_end from vacation_receipt 
+		select vacation_name,vacation_number, vacation_group, vacation_kind, vacation_start, vacation_end from vacation_receipt 
 			where vacation_group = #{vacation_group}
 	</select>
 	
@@ -88,7 +88,7 @@
 	       			set vacation_flag = '2' where vacation_flag='1' and vacation_group=#{vacation_group};
 
 		       	insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
-					values(msg_no.nextval, CONCAT(#{vacation_group},'행정보급관'), 'KOSTA대대인사과장', '휴가 승인완료', sysdate );
+					values(msg_no.nextval, CONCAT(#{vacation_group},'행정보급관'), 'KOSTA대대인사과장', CONCAT(#{vacation_name},' 출타 승인완료'), sysdate );
 		 end
 		}
 	</update>
@@ -101,7 +101,7 @@
 					update vacation_receipt
 				       			set vacation_flag = '3' where vacation_flag='1' and vacation_group=#{vacation_group};
 				    insert into Message (msg_no, msg_to_number, msg_from_number, msg_content, msg_date )
-								values(msg_no.nextval, CONCAT(#{vacation_group},'행정보급관'), 'KOSTA대대인사과장', '휴가 승인거절', sysdate );
+								values(msg_no.nextval, CONCAT(#{vacation_group},'행정보급관'), 'KOSTA대대인사과장', '출타 승인거절', sysdate );
 		 end
 		}
 	</update>

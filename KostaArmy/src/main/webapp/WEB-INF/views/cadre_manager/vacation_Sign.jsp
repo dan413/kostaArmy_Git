@@ -96,7 +96,7 @@
 					<table>
 						<thead>
 							<tr>
-								<th><h3>KOSTA 대대 휴가결제</h3></th>
+								<th><h3>KOSTA 대대 출타결제</h3></th>
 							</tr>
 						</thead>
 					</table>
@@ -112,7 +112,7 @@
 							<tr align="center">
 								<td colspan="3"
 									style="height: 600px; vertical-align: middle; background-color: #fff;">
-									결제가 올라온 휴가신청이 없습니다.</td>
+									결제가 올라온 출타신청이 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:if test="${center_v_count > 0}">
@@ -120,7 +120,7 @@
 								<td>본부중대</td>
 								<td>결제대기</td>
 								<td><input type="button" class="btn btn-primary btn-block"
-									value="휴가 조회"
+									value="출타 조회"
 									onclick="window.location.href='search_vacation_Sign.do?m_search_table=본부중대'"></td>
 							</tr>
 						</c:if>
@@ -129,7 +129,7 @@
 								<td>1중대</td>
 								<td>결제대기</td>
 								<td><input type="button" class="btn btn-primary btn-block"
-									value="휴가 조회"
+									value="출타 조회"
 									onclick="window.location.href='search_vacation_Sign.do?m_search_table=1중대'"></td>
 							</tr>
 						</c:if>
@@ -138,7 +138,7 @@
 								<td>2중대</td>
 								<td>결제대기</td>
 								<td><input type="button" class="btn btn-primary btn-block"
-									value="휴가 조회"
+									value="출타 조회"
 									onclick="window.location.href='search_vacation_Sign.do?m_search_table=2중대'"></td>
 							</tr>
 						</c:if>
@@ -147,7 +147,7 @@
 								<td>3중대</td>
 								<td>결제대기</td>
 								<td><input type="button" class="btn btn-primary btn-block"
-									value="휴가 조회"
+									value="출타 조회"
 									onclick="window.location.href='search_vacation_Sign.do?m_search_table=3중대'"></td>
 							</tr>
 						</c:if>
@@ -163,9 +163,9 @@
 						<div
 							style="text-align: center; margin-top: 40px; width: 100%; align-content: center;">
 							<a href='vacation_success.do?vacation_group=${vacation_group }'
-								class="btn btn-success btn-lg " style="width: 48%"> 휴가승인 </a> <a
+								class="btn btn-success btn-lg " style="width: 48%"> 출타승인 </a> <a
 								href='vacation_refuse.do?vacation_group=${vacation_group }'
-								class="btn btn-danger btn-lg " style="width: 48%"> 승인취소 </a>
+								class="btn btn-danger btn-lg " style="width: 48%"> 출타취소 </a>
 						</div>
 					</div>
 

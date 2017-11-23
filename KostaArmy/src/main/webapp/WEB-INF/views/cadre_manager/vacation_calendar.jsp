@@ -112,7 +112,7 @@ color: #BBBBBB;
 						<table>
 							<thead>
 								<tr>
-									<th style="font-size: xx-large; font-weight: bolder;">휴 가 종 합</th>
+									<th style="font-size: xx-large; font-weight: bolder;">출 타 종 합</th>
 								</tr>
 							</thead>
 						</table>

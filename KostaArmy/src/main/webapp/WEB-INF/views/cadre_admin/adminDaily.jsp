@@ -21,8 +21,8 @@
 				<div class="datagrid" style="overflow-y: hidden;">
 					<table style="text-align: left;">
 						<thead style="font-size: 30px;">
-							<tr><th>복무일지</th></tr>
-							<tr><td><input id="today" type="date" class="form-control"></td></tr>
+							<tr><th colspan="2">복무일지</th></tr>
+							<tr><td colspan="2"><input id="today" type="date" class="form-control"></td></tr>
 						</thead>
 						<tbody id=dailyList></tbody>
 					</table>
@@ -33,17 +33,17 @@
 								<tr><th colspan="2">복무일지 입력란</th></tr>
 							</thead>
 							<tr>
-								<td><textarea
-										id="dailyContent" class="form-control"
+								<td>
+									<textarea id="dailyContent" class="form-control"
 										placeholder="내용 입력 하세요" maxlength="500"
-										style="width: 100%; height: 100px;"></textarea></td>
+										style="width: 100%; height: 100px;"></textarea>
+								</td>
 							</tr>
 
 							<tr>
-								<td><input id="dailyMemo" type="text" class="form-control" placeholder="비 고"
-									style="width: 70%; float: left;">&nbsp;&nbsp; 
-									<input id="dailyTime" class="form-control" type="text"
-									placeholder="시간을 입력 하세요" style="width: 25%;">
+								<td>
+									<input id="dailyMemo" type="text" class="form-control" placeholder="비 고" style="width: 70%; float: left;">&nbsp;&nbsp; 
+									<input id="dailyTime" class="form-control" type="text" placeholder="시간을 입력 하세요" style="width: 25%;">
 									<input id="cadre_group" type="hidden" value="${cadre_group}">
 								</td>
 							</tr>
@@ -60,8 +60,6 @@
 
 		</div>
 	</div>
-
-	<!-- ========================================================= -->
 
 	<!-- 엑셀 저장 버튼 누를떄 -->
 	<div class="modal" id="exelModal" tabindex="-1" role="dialog"
@@ -87,6 +85,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

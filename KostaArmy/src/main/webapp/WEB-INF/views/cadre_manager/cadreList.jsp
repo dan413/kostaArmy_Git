@@ -106,7 +106,16 @@
 												<span class="label label-success" style="width: 100%">복무중</span>
 												<!-- <button type="button" class="btn btn-success" disabled
 												style="width: 100%">복무중</button> -->
-											</c:if> <c:if
+											</c:if> 
+											
+											<c:if
+												test="${cadre_list.cadre_v_flag == 3}">
+												<span class="label label-warning" style="width: 100%">휴가중</span>
+												<!-- <button type="button" class="btn btn-success" disabled
+												style="width: 100%"></button> -->
+											</c:if>
+											
+											<c:if
 												test="${cadre_list.cadre_bloodType != null && cadre_list.cadre_d_day == 0 && cadre_list.cadre_enabled == 1}">
 												<span class="label label-warning" style="width: 100%">전역처리요망</span>
 												<!-- <button type="button" class="btn btn-danger" disabled
@@ -206,11 +215,22 @@
 												<span class="label label-default">처리중</span>
 												<!-- <button type="button" class="btn btn-warning" disabled
 												style="width: 100%">처리중</button> -->
-											</c:if> <c:if test="${cadre_list.cadre_bloodType != null}">
+											</c:if> 
+											
+											
+											<c:if test="${cadre_list.cadre_bloodType != null}">
 												<span class="label label-success">복무중</span>
 												<!-- <button type="button" class="btn btn-success" disabled
 												style="width: 100%">처리중</button> -->
-											</c:if></td>
+											</c:if>
+											<c:if
+												test="${cadre_list.cadre_v_flag == 3}">
+												<span class="label label-warning" style="width: 100%">휴가중</span>
+												<!-- <button type="button" class="btn btn-success" disabled
+												style="width: 100%"></button> -->
+											</c:if>
+											
+											</td>
 										<td style="border-bottom:0.5px solid #ddd; border-right: 0.5px solid #ddd;"><c:if
 												test="${cadre_list.cadre_regidentNumber != null}">
 												<input type="button" class="btn btn-info" value="상세보기"

@@ -47,5 +47,7 @@ public interface CadreDAO {
 	public List<CadreDTO> get_Cadre_By_Key(Map<String, String> map3);
 
 	List<CadreDTO> getAllCadre_flagOn();
+	
+	public List<CadreDTO> getOuterCadre();
 
 }

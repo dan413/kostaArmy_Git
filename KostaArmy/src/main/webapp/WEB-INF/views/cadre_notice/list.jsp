@@ -41,19 +41,15 @@
 						</table>
 
 						<div class="noticeTitle_part">
-							<div align="center" style="margin-top: 45px">
-								<a href="notice_list.do"
-									style="text-decoration: none; color: #000; font-size: 0.8em">
-									<div class="all_notice">전체</div>
-								</a> <a href="notice_dept_list.do?dept=군수"
-									style="text-decoration: none; color: #000; font-size: 0.8em">
-									<div class="supply_notice">군수</div>
-								</a> <a href="notice_dept_list.do?dept=인사"
-									style="text-decoration: none; color: #000; font-size: 0.8em">
-									<div class="person_notice">인사</div>
-								</a> <a href="notice_dept_list.do?dept=행정"
-									style="text-decoration: none; color: #000; font-size: 0.8em">
-									<div class="manage_notice">행정</div>
+							<div align="center" style="margin-top: 45px;">
+								<a class="btn btn-default btn-all_notice" href="notice_list.do">
+									<br><br><h4><b>전 체</b></h4>
+								</a> <a class="btn btn-default btn-supply_notice" href="notice_dept_list.do?dept=군수" style="margin-top: 10px;">
+									<br><br><h4><b>군 수</b></h4>
+								</a> <a class="btn btn-default btn-person_notice" href="notice_dept_list.do?dept=인사" style="margin-top: 10px;">
+									<br><br><h4><b>인 사</b></h4>
+								</a> <a class="btn btn-default btn-manage_notice" href="notice_dept_list.do?dept=행정" style="margin-top: 10px;">
+									<br><br><h4><b>행 정</b></h4>
 								</a>
 							</div>
 						</div>

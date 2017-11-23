@@ -36,6 +36,6 @@ public interface Manager_SoldierDAO {
 	
 	List<Manager_SoldierDTO> get_Driver_By_Key(Map<String, String> map4);
 
-
+	List<Manager_SoldierDTO> getOuterSoldier();
 
 }

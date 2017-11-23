@@ -139,4 +139,10 @@ public class CadreDAOImpl implements CadreDAO {
 		CadreDAO cadreDAO = sqlSession.getMapper(CadreDAO.class);
 		return cadreDAO.getCadre_vacationMember(cadre_group);
 	}
+
+	@Override
+	public List<CadreDTO> getOuterCadre() {
+		CadreDAO cadreDAO = sqlSession.getMapper(CadreDAO.class);
+		return cadreDAO.getOuterCadre();
+	}
 }

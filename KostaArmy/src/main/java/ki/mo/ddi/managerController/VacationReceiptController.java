@@ -196,6 +196,11 @@ public class VacationReceiptController {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String cadre = authentication.getName();
+		
+		Calendar calendar = new GregorianCalendar(Locale.KOREA);
+		int nYear = calendar.get(Calendar.YEAR);
+		int nMonth = calendar.get(Calendar.MONTH) + 1 + 1;
+		String fullcal = nYear + "-" + nMonth;
 
 		CadreDTO cadre_dto = cadreDAO.findInfoByNum(cadre);
 
@@ -291,7 +296,7 @@ public class VacationReceiptController {
 		mav.addObject("squad1_v_count", squad1_v_count);
 		mav.addObject("squad2_v_count", squad2_v_count);
 		mav.addObject("squad3_v_count", squad3_v_count);
-		
+		mav.addObject("fullcal", fullcal);
 		mav.addObject("v_ing", v_ing);
 		mav.addObject("v_agree", v_agree);
 		mav.addObject("v_disagree", v_disagree);
@@ -429,13 +434,14 @@ public class VacationReceiptController {
 
 			list.get(i).setVacation_start1(date.format(list.get(i).getVacation_start()));
 			list.get(i).setVacation_end1(date.format(list.get(i).getVacation_end()));
-
+			
+			System.out.println(list.get(i).getVacation_kind());
 			map.put("vacation_number", list.get(i).getVacation_number());
 			map.put("vacation_group", list.get(i).getVacation_group());
 			map.put("vacation_kind", list.get(i).getVacation_kind());
 			map.put("vacation_start", list.get(i).getVacation_start1());
 			map.put("vacation_end", list.get(i).getVacation_end1());
-
+			map.put("vacation_name", list.get(i).getVacation_name());
 			receiptDAO.Sign_success_2(map);
 
 		}
@@ -907,4 +913,310 @@ public class VacationReceiptController {
 		mav.setViewName("cadre_manager/cadreState");
 		return mav;
 	}
+	
+	@RequestMapping("captain_Total_gragh.do")
+	   public ModelAndView captain_Total_gragh() throws Exception{
+	      ModelAndView mav = new ModelAndView();
+	      
+	       int center_total_Count =0; // 본부중대 인원
+	        int center_out_Count = 0; //본부중대 출타 인원
+	         int center_count_by_normal = 0;
+	         int center_count_by_sunday =0;
+	         int center_count_by_hospital = 0;
+	         int center_count_by_away =0;
+	         
+	         int one_total_Count =0; // 1중대 인원
+	         int one_out_Count = 0; //1중대 출타 인원
+	         int one_count_by_normal = 0;
+	         int one_count_by_sunday =0;
+	         int one_count_by_hospital = 0;
+	         int one_count_by_away =0;
+	         
+	         int two_total_Count =0; // 2중대 인원
+	         int two_out_Count = 0; //2중대 출타 인원
+	         int two_count_by_normal = 0;
+	         int two_count_by_sunday =0;
+	         int two_count_by_hospital = 0;
+	         int two_count_by_away =0;
+	         
+	         int three_total_Count =0; // 3중대 인원
+	         int three_out_Count = 0; //3중대 출타 인원
+	         int three_count_by_normal = 0;
+	         int three_count_by_sunday =0;
+	         int three_count_by_hospital = 0;
+	         int three_count_by_away =0;
+	         
+	         int All_out_Count = 0; // 총 출타자 (대대 / 해당중대로 나뉠수 있음)
+	      
+	      List<Manager_SoldierDTO> list = soldierDAO.getAllSoldierList();
+	      List<CadreDTO> list_c = cadreDAO.getAllCadre();
+	      
+	      for(int i= 0; i < list.size(); i++) {
+	         
+	         if(list.get(i).getSoldier_group().equals("본부중대")) {
+	            center_total_Count++;
+	         }
+	         else if(list.get(i).getSoldier_group().equals("1중대")) {
+	            one_total_Count++;
+	         }
+	         else if(list.get(i).getSoldier_group().equals("2중대")) {
+	            two_total_Count++;
+	         }
+	         else if(list.get(i).getSoldier_group().equals("3중대")) {
+	            three_total_Count++;
+	         }
+	         
+	         
+	      }
+	      
+	      for(int i= 0; i < list_c.size(); i++) {
+	         if(list_c.get(i).getCadre_group().equals("본부중대")) {
+	            center_total_Count++;
+	         }
+	         else if(list_c.get(i).getCadre_group().equals("1중대")) {
+	            one_total_Count++;
+	         }
+	         else if(list_c.get(i).getCadre_group().equals("2중대")) {
+	            two_total_Count++;
+	         }
+	         else if(list_c.get(i).getCadre_group().equals("3중대")) {
+	            three_total_Count++;
+	         }
+	      }
+	      
+	      
+	         
+	      int All_total_Count = list.size() + list_c.size(); // 현재 부대 병사 + 간부 총원
+	       
+	      List<Manager_SoldierDTO> list_outer = soldierDAO.getOuterSoldier();
+	      List<CadreDTO> list_c_outer = cadreDAO.getOuterCadre();
+	      
+	      for(int i= 0; i < list_outer.size(); i++) {
+	         
+	       if(list_outer.get(i).getSoldier_group().equals("본부중대")) {
+	            
+	            center_out_Count++;
+	         
+	            if(list_outer.get(i).getSoldier_vacation().equals("신병") || list_outer.get(i).getSoldier_vacation().equals("1차")
+	               || list_outer.get(i).getSoldier_vacation().equals("2차") || list_outer.get(i).getSoldier_vacation().equals("3차") || list_outer.get(i).getSoldier_vacation().equals("포상")) 
+	         {
+	            center_count_by_normal++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("외박") || list_outer.get(i).getSoldier_vacation().equals("외출"))
+	         {
+	            center_count_by_sunday++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("입실") )
+	         {
+	            center_count_by_hospital++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("파견") )
+	         {
+	            center_count_by_away++;
+	         }
+	      }
+	      
+	      else if(list_outer.get(i).getSoldier_group().equals("1중대")) {
+	         
+	            one_out_Count++;
+	         
+	            if(list_outer.get(i).getSoldier_vacation().equals("신병") || list_outer.get(i).getSoldier_vacation().equals("1차")
+	               || list_outer.get(i).getSoldier_vacation().equals("2차") || list_outer.get(i).getSoldier_vacation().equals("3차") || list_outer.get(i).getSoldier_vacation().equals("포상")) 
+	         {
+	            one_count_by_normal++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("외박") || list_outer.get(i).getSoldier_vacation().equals("외출"))
+	         {
+	            one_count_by_sunday++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("입실") )
+	         {
+	            one_count_by_hospital++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("파견") )
+	         {
+	            one_count_by_away++;
+	         }
+	      }
+	      
+	      else if(list_outer.get(i).getSoldier_group().equals("2중대")) {
+	         
+	            two_out_Count++;
+	         
+	            if(list_outer.get(i).getSoldier_vacation().equals("신병") || list_outer.get(i).getSoldier_vacation().equals("1차")
+	               || list_outer.get(i).getSoldier_vacation().equals("2차") || list_outer.get(i).getSoldier_vacation().equals("3차") || list_outer.get(i).getSoldier_vacation().equals("포상")) 
+	         {
+	               two_count_by_normal++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("외박") || list_outer.get(i).getSoldier_vacation().equals("외출"))
+	         {
+	            two_count_by_sunday++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("입실") )
+	         {
+	            two_count_by_hospital++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("파견") )
+	         {
+	            two_count_by_away++;
+	         }
+	      }
+	      
+	      else if(list_outer.get(i).getSoldier_group().equals("3중대")) {
+	         
+	            three_out_Count++;
+	         
+	            if(list_outer.get(i).getSoldier_vacation().equals("신병") || list_outer.get(i).getSoldier_vacation().equals("1차")
+	               || list_outer.get(i).getSoldier_vacation().equals("2차") || list_outer.get(i).getSoldier_vacation().equals("3차") || list_outer.get(i).getSoldier_vacation().equals("포상")) 
+	         {
+	               three_count_by_normal++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("외박") || list_outer.get(i).getSoldier_vacation().equals("외출"))
+	         {
+	            three_count_by_sunday++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("입실") )
+	         {
+	            three_count_by_hospital++;
+	         }
+	         else if(list_outer.get(i).getSoldier_vacation().equals("파견") )
+	         {
+	            three_count_by_away++;
+	         }
+	      }
+	   }
+	   
+	      for(int i= 0; i < list_c_outer.size(); i++) {
+	          if(list_c_outer.get(i).getCadre_group().equals("본부중대")) {
+	               
+	               center_out_Count++;
+	            
+	               if(list_c_outer.get(i).getCadre_vacation().equals("신병") || list_c_outer.get(i).getCadre_vacation().equals("1차")
+	                  || list_c_outer.get(i).getCadre_vacation().equals("2차") || list_c_outer.get(i).getCadre_vacation().equals("3차") || list_c_outer.get(i).getCadre_vacation().equals("포상")) 
+	            {
+	               center_count_by_normal++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("외박") || list_c_outer.get(i).getCadre_vacation().equals("외출"))
+	            {
+	               center_count_by_sunday++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("입실") )
+	            {
+	               center_count_by_hospital++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("파견") )
+	            {
+	               center_count_by_away++;
+	            }
+	         }
+	         
+	         else if(list_c_outer.get(i).getCadre_group().equals("1중대")) {
+	            
+	               one_out_Count++;
+	            
+	               if(list_c_outer.get(i).getCadre_vacation().equals("신병") || list_c_outer.get(i).getCadre_vacation().equals("1차")
+	                  || list_c_outer.get(i).getCadre_vacation().equals("2차") || list_c_outer.get(i).getCadre_vacation().equals("3차") || list_c_outer.get(i).getCadre_vacation().equals("포상")) 
+	            {
+	               one_count_by_normal++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("외박") || list_c_outer.get(i).getCadre_vacation().equals("외출"))
+	            {
+	               one_count_by_sunday++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("입실") )
+	            {
+	               one_count_by_hospital++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("파견") )
+	            {
+	               one_count_by_away++;
+	            }
+	         }
+	         
+	         else if(list_c_outer.get(i).getCadre_group().equals("2중대")) {
+	            
+	               two_out_Count++;
+	            
+	               if(list_c_outer.get(i).getCadre_vacation().equals("신병") || list_c_outer.get(i).getCadre_vacation().equals("1차")
+	                  || list_c_outer.get(i).getCadre_vacation().equals("2차") || list_c_outer.get(i).getCadre_vacation().equals("3차") || list_c_outer.get(i).getCadre_vacation().equals("포상")) 
+	            {
+	                  two_count_by_normal++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("외박") || list_c_outer.get(i).getCadre_vacation().equals("외출"))
+	            {
+	               two_count_by_sunday++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("입실") )
+	            {
+	               two_count_by_hospital++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("파견") )
+	            {
+	               two_count_by_away++;
+	            }
+	         }
+	         
+	         else if(list_c_outer.get(i).getCadre_group().equals("3중대")) {
+	            
+	               three_out_Count++;
+	            
+	               if(list_c_outer.get(i).getCadre_vacation().equals("신병") || list_c_outer.get(i).getCadre_vacation().equals("1차")
+	                  || list_c_outer.get(i).getCadre_vacation().equals("2차") || list_c_outer.get(i).getCadre_vacation().equals("3차") || list_c_outer.get(i).getCadre_vacation().equals("포상")) 
+	            {
+	                  three_count_by_normal++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("외박") || list_c_outer.get(i).getCadre_vacation().equals("외출"))
+	            {
+	               three_count_by_sunday++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("입실") )
+	            {
+	               three_count_by_hospital++;
+	            }
+	            else if(list_c_outer.get(i).getCadre_vacation().equals("파견") )
+	            {
+	               three_count_by_away++;
+	            }
+	         }
+	      }
+	      All_out_Count = center_out_Count + one_out_Count + two_out_Count + three_out_Count;
+	      
+	     
+	      mav.addObject("All_total_Count", All_total_Count);
+	      mav.addObject("All_out_Count", All_out_Count);
+	      
+	      mav.addObject("center_total_Count", center_total_Count);
+	      mav.addObject("center_out_Count", center_out_Count);
+	      mav.addObject("center_count_by_normal", center_count_by_normal);
+	      mav.addObject("center_count_by_sunday", center_count_by_sunday);
+	      mav.addObject("center_count_by_hospital", center_count_by_hospital);
+	      mav.addObject("center_count_by_away", center_count_by_away);
+	      
+	      mav.addObject("one_total_Count", one_total_Count);
+	      mav.addObject("one_out_Count", one_out_Count);
+	      mav.addObject("one_count_by_normal", one_count_by_normal);
+	      mav.addObject("one_count_by_sunday", one_count_by_sunday);
+	      mav.addObject("one_count_by_hospital", one_count_by_hospital);
+	      mav.addObject("one_count_by_away", one_count_by_away);
+	      
+	      mav.addObject("two_total_Count", two_total_Count);
+	      mav.addObject("two_out_Count", two_out_Count);
+	      mav.addObject("two_count_by_normal", two_count_by_normal);
+	      mav.addObject("two_count_by_sunday", two_count_by_sunday);
+	      mav.addObject("two_count_by_hospital", two_count_by_hospital);
+	      mav.addObject("two_count_by_away", two_count_by_away);
+	      
+	      mav.addObject("three_total_Count", three_total_Count);
+	      mav.addObject("three_out_Count", three_out_Count);
+	      mav.addObject("three_count_by_normal", three_count_by_normal);
+	      mav.addObject("three_count_by_sunday", three_count_by_sunday);
+	      mav.addObject("three_count_by_hospital", three_count_by_hospital);
+	      mav.addObject("three_count_by_away", three_count_by_away);
+	     
+	      
+	      mav.setViewName("cadre_manager/corp_cadreState");
+
+	      return mav;
+	      
+	   }
 }

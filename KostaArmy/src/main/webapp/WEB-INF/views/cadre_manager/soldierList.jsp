@@ -116,7 +116,7 @@
 										</c:if>
 										<c:if
 											test="${list.soldier_v_flag eq '3'}">
-											<span class="label label-warning" style="width: 100%">휴가중</span>
+											<span class="label label-warning" style="width: 100%">출타중</span>
 											<!-- 		<button type="button" class="btn btn-success" disabled
 											style="width: 100%">복무중</button> -->
 										</c:if>  
@@ -228,7 +228,7 @@
 												style="width: 100%">복무중</button> -->
 												<span class="label label-success" style="width: 100%">복무중</span>
 											</c:if> <c:if test="${list.soldier_v_flag eq '3'}">
-												<span class="label label-warning" style="width: 100%">휴가중</span>
+												<span class="label label-warning" style="width: 100%">출타중</span>
 												<!-- 		<button type="button" class="btn btn-success" disabled
 											style="width: 100%">복무중</button> -->
 											</c:if></td>

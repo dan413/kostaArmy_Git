@@ -44,8 +44,9 @@ $(function() {
 				},
 				success: function(result){
 					if(result == '0'){
-						$('#vacationModal').modal('hide');
 						location.reload();
+						$('#vacationModal').modal('hide');
+						
 					}
 				}
 			});
@@ -98,8 +99,8 @@ $(function() {
 				},
 				success: function(result){
 					if(result == '0'){
-						$('#vacationModal').modal('hide');
 						location.reload();
+						$('#vacationModal').modal('hide');
 					}
 				}
 			});

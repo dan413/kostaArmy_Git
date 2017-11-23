@@ -70,8 +70,8 @@
 								<c:if test="${nullMessage == null}">
 									<c:forEach var="cadre_commuteList" items="${cadre_commuteList }">
 											<tr>
-												<td>${cadre_commuteList.start_time }</td>
-												<td>${cadre_commuteList.end_time }</td>
+												<td><fmt:formatDate value="${cadre_commuteList.start_time }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+												<td><fmt:formatDate value="${cadre_commuteList.end_time }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 												<td>
 													<c:if test="${cadre_commuteList.over_time == null}">
 														<span class="label label-default">초과근무 x</span>

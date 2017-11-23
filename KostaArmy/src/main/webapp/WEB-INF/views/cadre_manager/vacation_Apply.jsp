@@ -101,7 +101,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><h3>${group }&nbsp;&nbsp;휴가신청</h3></th>
+									<th><h3>${group }&nbsp;&nbsp;출타신청</h3></th>
 								</tr>
 							</thead>
 						</table>
@@ -163,13 +163,13 @@
 														test="${soldier_list.soldier_v_flag == 0 && v_ing == 0 && v_agree == 0}">
 														<button class="btn btn-info btn_soldieraddVacation"
 															id="${soldier_list.soldier_number }/${soldier_list.soldier_name }/${soldier_list.soldier_mmr }/${soldier_list.soldier_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${soldier_list.soldier_v_flag == 0 && v_ing != 0 || v_agree != 0}">
 														<button class="btn btn-info btn_soldieraddVacation"
 															disabled="disabled"
 															id="${soldier_list.soldier_number }/${soldier_list.soldier_name }/${soldier_list.soldier_mmr }/${soldier_list.soldier_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${soldier_list.soldier_v_flag == 1 && v_ing == 0 && v_agree == 0}">
 														<a
@@ -180,11 +180,11 @@
 
 													</c:if></td>
 												<td><c:if test="${soldier_list.soldier_v_flag == 0 }">
-														<span class="label label-danger">휴가 신청 가능</span>
+														<span class="label label-danger">출타 신청 가능</span>
 													</c:if> <c:if test="${soldier_list.soldier_v_flag == 1 }">
-														<span class="label label-default">휴가 결제 대기</span>
+														<span class="label label-default">출타 결제 대기</span>
 													</c:if> <c:if test="${soldier_list.soldier_v_flag == 2 }">
-														<span class="label label-success">휴가 승인 완료</span>
+														<span class="label label-success">출타 승인 완료</span>
 													</c:if></td>
 											</tr>
 										</c:if>
@@ -211,13 +211,13 @@
 														test="${cadre_list.cadre_v_flag == 0 && v_ing == 0 && v_agree == 0}">
 														<button class="btn btn-info btn_cadreaddVacation"
 															id="${cadre_list.cadre_number }/${cadre_list.cadre_name }/${cadre_list.cadre_mmr }/${cadre_list.cadre_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${cadre_list.cadre_v_flag == 0 && v_ing != 0 || v_agree != 0}">
 														<button class="btn btn-info btn_cadreaddVacation"
 															disabled="disabled"
 															id="${cadre_list.cadre_number }/${cadre_list.cadre_name }/${cadre_list.cadre_mmr }/${cadre_list.cadre_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${cadre_list.cadre_v_flag == 1 && v_ing == 0 && v_agree == 0}">
 														<a
@@ -227,11 +227,11 @@
 														test="${cadre_list.cadre_v_flag == 1 && v_ing != 0 || v_agree != 0}">
 													</c:if></td>
 												<td><c:if test="${cadre_list.cadre_v_flag == 0 }">
-														<span class="label label-danger">휴가 신청 가능</span>
+														<span class="label label-danger">출타 신청 가능</span>
 													</c:if> <c:if test="${cadre_list.cadre_v_flag == 1 }">
-														<span class="label label-default">휴가 결제 대기</span>
+														<span class="label label-default">출타 결제 대기</span>
 													</c:if> <c:if test="${cadre_list.cadre_v_flag == 2 }">
-														<span class="label label-success">휴가 승인 완료</span>
+														<span class="label label-success">출타 승인 완료</span>
 													</c:if></td>
 											</tr>
 										</c:if>
@@ -260,13 +260,13 @@
 														test="${soldier_list.soldier_v_flag == 0 && v_ing == 0 && v_agree == 0}">
 														<button class="btn btn-info btn_soldieraddVacation"
 															id="${soldier_list.soldier_number }/${soldier_list.soldier_name }/${soldier_list.soldier_mmr }/${soldier_list.soldier_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${soldier_list.soldier_v_flag == 0 && v_ing != 0 || v_agree != 0}">
 														<button class="btn btn-info btn_soldieraddVacation"
 															disabled="disabled"
 															id="${soldier_list.soldier_number }/${soldier_list.soldier_name }/${soldier_list.soldier_mmr }/${soldier_list.soldier_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${soldier_list.soldier_v_flag == 1 && v_ing == 0 && v_agree == 0}">
 														<a
@@ -277,11 +277,11 @@
 
 													</c:if></td>
 												<td><c:if test="${soldier_list.soldier_v_flag == 0 }">
-														<span class="label label-danger">휴가 신청 가능</span>
+														<span class="label label-danger">출타 신청 가능</span>
 													</c:if> <c:if test="${soldier_list.soldier_v_flag == 1 }">
-														<span class="label label-default">휴가 결제 대기</span>
+														<span class="label label-default">출타 결제 대기</span>
 													</c:if> <c:if test="${soldier_list.soldier_v_flag == 2 }">
-														<span class="label label-success">휴가 승인 완료</span>
+														<span class="label label-success">출타 승인 완료</span>
 													</c:if></td>
 											</tr>
 										</c:if>
@@ -310,13 +310,13 @@
 														test="${cadre_list.cadre_v_flag == 0 && v_ing == 0 && v_agree == 0}">
 														<button class="btn btn-info btn_cadreaddVacation"
 															id="${cadre_list.cadre_number }/${cadre_list.cadre_name }/${cadre_list.cadre_mmr }/${cadre_list.cadre_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${cadre_list.cadre_v_flag == 0 && v_ing != 0 || v_agree != 0}">
 														<button class="btn btn-info btn_cadreaddVacation"
 															disabled="disabled"
 															id="${cadre_list.cadre_number }/${cadre_list.cadre_name }/${cadre_list.cadre_mmr }/${cadre_list.cadre_group }">
-															휴가신청</button>
+															출타신청</button>
 													</c:if> <c:if
 														test="${cadre_list.cadre_v_flag == 1 && v_ing == 0 && v_agree == 0}">
 														<a
@@ -326,11 +326,11 @@
 														test="${cadre_list.cadre_v_flag == 1 && v_ing != 0 || v_agree != 0}">
 													</c:if></td>
 												<td><c:if test="${cadre_list.cadre_v_flag == 0 }">
-														<span class="label label-danger">휴가 신청 가능</span>
+														<span class="label label-danger">출타 신청 가능</span>
 													</c:if> <c:if test="${cadre_list.cadre_v_flag == 1 }">
-														<span class="label label-default">휴가 결제 대기</span>
+														<span class="label label-default">출타 결제 대기</span>
 													</c:if> <c:if test="${cadre_list.cadre_v_flag == 2 }">
-														<span class="label label-success">휴가 승인 완료</span>
+														<span class="label label-success">출타 승인 완료</span>
 													</c:if></td>
 											</tr>
 										</c:if>
@@ -353,7 +353,7 @@
 									<th width="20%">총원</th>
 									<th width="20%">병사</th>
 									<th width="20%">간부</th>
-									<th width="20%">휴가신청자</th>
+									<th width="20%">출타신청자</th>
 									<th width="20%">상태</th>
 								</tr>
 							</thead>
@@ -402,7 +402,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">휴가신청</h5>
+					<h5 class="modal-title" id="exampleModalLabel">출타신청</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
@@ -412,7 +412,7 @@
 					<div class="form">
 						<table class="table table-bordered">
 							<tr>
-								<td>휴 가 종 류</td>
+								<td>출 타 종 류</td>
 								<td><select name="vacation_list" id="vacation_list"
 									class="form-control" style="width: 100px;">
 										<option value="신병">신 병</option>

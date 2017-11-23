@@ -59,7 +59,7 @@
 						인 쇄 
 					</a> 
 					<a href="monthExcel.do">
-						<input type="button" class="btn btn-primary btn-lg" value="저 장" style="width: 32%" />
+						<input type="button" class="btn btn-primary btn-lg" value="엑셀 저장" style="width: 32%" />
 					</a>
 					<a href="monthDelete.do">
 						<input type="button" class="btn btn-danger btn-lg" value="비우기" style="width: 32%">
