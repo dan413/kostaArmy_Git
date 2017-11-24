@@ -145,4 +145,11 @@ public class CadreDAOImpl implements CadreDAO {
 		CadreDAO cadreDAO = sqlSession.getMapper(CadreDAO.class);
 		return cadreDAO.getOuterCadre();
 	}
+
+	@Override
+	public void cadre_upgradeMMR(CadreDTO cadreObj) {
+		CadreDAO cadreDAO = sqlSession.getMapper(CadreDAO.class);
+		cadreDAO.cadre_upgradeMMR(cadreObj);
+		
+	}
 }

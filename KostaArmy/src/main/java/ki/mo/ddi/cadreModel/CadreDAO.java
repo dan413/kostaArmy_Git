@@ -50,4 +50,6 @@ public interface CadreDAO {
 	
 	public List<CadreDTO> getOuterCadre();
 
+	public void cadre_upgradeMMR(CadreDTO cadreObj);
+
 }

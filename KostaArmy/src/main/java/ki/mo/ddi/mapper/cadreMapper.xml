@@ -376,5 +376,9 @@
     <select id="getOuterCadre" resultType="ki.mo.ddi.cadreModel.CadreDTO">
        select * from cadreUser_table where cadre_v_flag = '3'
     </select>
+
+	<update id="cadre_upgradeMMR" parameterType="ki.mo.ddi.cadreModel.CadreDTO">
+		update cadreUser_Table set cadre_mmr = #{cadre_mmr}, cadre_group = #{cadre_group}, cadre_position = #{cadre_position} where cadre_number = #{cadre_number}
+	</update>
     
 </mapper>

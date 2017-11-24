@@ -382,4 +382,21 @@ public class ManagerCadreController {
       cadreDAO.cadreDischargeProcess(cadre_number);
       response.getWriter().write("0");  
    }
+   
+   @RequestMapping("/cadre_upgradeMMR.do")
+   public void cadre_upgradeMMR(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	   String cadre_number = request.getParameter("cadre_number");
+	   String cadre_mmr = request.getParameter("cadre_mmr");
+	   String cadre_group = request.getParameter("cadre_group");
+	   String cadre_position = request.getParameter("cadre_position");
+	   
+	   CadreDTO cadreObj = new CadreDTO();
+	   cadreObj.setCadre_number(cadre_number);
+	   cadreObj.setCadre_mmr(cadre_mmr);
+	   cadreObj.setCadre_position(cadre_position);
+	   cadreObj.setCadre_group(cadre_group);
+	   
+	   cadreDAO.cadre_upgradeMMR(cadreObj);
+	   
+   }
 }

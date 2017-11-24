@@ -172,6 +172,32 @@ $(function(){
          });
       });
    });
+   
+   $(document).on('click', '.btn-upgradeMMR', function(){
+	  
+	  var cadre_number = $(this).attr('id');
+	  $('#cadre_upgradeMMR_Modal').modal('show');
+	  
+	  $('#btn_cadreUpgradePro').unbind('click');
+	  $('#btn_cadreUpgradePro').click(function(){
+		  var cadre_mmr = $('#cadre_mmr option:selected').val();
+		  var cadre_group = $('#cadre_group option:selected').val();
+		  var cadre_position = $('#cadre_position option:selected').val();
+		  $.ajax({
+				 type: 'POST',
+				 url: 'cadre_upgradeMMR.do',
+				 data:{
+					 cadre_number: cadre_number,
+					 cadre_mmr: cadre_mmr,
+					 cadre_group: cadre_group,
+					 cadre_position: cadre_position
+				 },
+				 success: function(result){
+					 location.reload();
+				 }
+		  });
+	  });
+   });
 });
 
 function handleFileSelect() {
